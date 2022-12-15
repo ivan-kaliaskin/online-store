@@ -2,4 +2,5 @@
 // Затем здесь создаётся body и в него аппендится вызов App()
 import createApp from './components/App'
 
-createApp()
+const body = document.getElementById('body')
+body.append(createApp())
