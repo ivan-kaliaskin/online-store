@@ -36,7 +36,7 @@
   background-color: rgb(255, 122, 122);
 }
 
-#main {
+#page-container {
   display: flex;
   box-sizing: border-box;
   background-color: rgb(129, 219, 255);
