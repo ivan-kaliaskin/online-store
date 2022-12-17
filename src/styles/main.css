@@ -5,6 +5,14 @@
   outline: none;
 }
 
+#app-container {
+  width: 600px;
+  height: 900px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  background-color: rgb(211, 255, 129);
+}
+
 #header {
   display: flex;
   justify-content: center;
@@ -28,9 +36,8 @@
   background-color: rgb(255, 122, 122);
 }
 
-#app-container {
-  width: 500px;
-  height: 400px;
+#main {
+  display: flex;
   box-sizing: border-box;
-  background-color: rgb(211, 255, 129);
+  background-color: rgb(129, 219, 255);
 }/*# sourceMappingURL=main.css.map */

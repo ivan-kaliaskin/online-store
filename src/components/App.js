@@ -1,12 +1,12 @@
 // здесь собирается приложение
 import '../styles/main.css'
-import createHeader from './header'
+import Header from './header'
+import PageContainer from './PageContainer'
 
 function createApp() {
-    createHeader()
     const appContainerEl = document.createElement('div')
     appContainerEl.setAttribute('id', 'app-container')
-    appContainerEl.innerText = 'aaa'
+    appContainerEl.append(Header(), PageContainer())
     return appContainerEl
 }
 

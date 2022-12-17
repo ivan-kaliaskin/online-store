@@ -1,23 +1,13 @@
-function createHeader() {
+import Nav from "./Nav"
+
+function Header() {
     const body = document.getElementById('body')
     const header = document.createElement('header')
     header.setAttribute('id', 'header')
 
-    const nav = document.createElement('nav')
-    nav.setAttribute('id', 'nav')
+    header.append(Nav())
 
-    const a1 = document.createElement('a')
-    a1.setAttribute('id', 'a1')
-    a1.setAttribute('href', '')
-    a1.innerText = 'main'
-    const a2 = document.createElement('a')
-    a2.setAttribute('id', 'a2')
-    a2.setAttribute('href', '')
-    a2.innerText = 'shop cart'
-
-    nav.append(a1, a2)
-    header.append(nav)
-    body.append(header)
+    return header
 }
 
-export default createHeader
+export default Header
