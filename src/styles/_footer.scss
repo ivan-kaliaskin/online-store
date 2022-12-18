@@ -1,0 +1,14 @@
+.footer {
+  background-color: #181a1c;
+  color: orange;
+  border-top: 2px solid orange;
+  border-radius: 24px 24px 0 0;
+
+  &-container {
+    display: flex;
+  }
+  
+  &-text {
+    text-align: center;
+  }
+}
