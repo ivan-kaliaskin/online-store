@@ -40,4 +40,18 @@
   display: flex;
   box-sizing: border-box;
   background-color: rgb(129, 219, 255);
+}
+
+.home-item {
+  width: 48px;
+  height: 24px;
+  box-sizing: border-box;
+  background-color: tomato;
+}
+
+.cart-item {
+  width: 48px;
+  height: 24px;
+  box-sizing: border-box;
+  background-color: tan;
 }/*# sourceMappingURL=main.css.map */

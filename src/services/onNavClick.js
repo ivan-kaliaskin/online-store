@@ -1,16 +1,17 @@
+import setPageContent from "./setPageContent"
+
 function onNavClick(event) {
     if (!event.target.classList.contains('a')) { return }
-    const pageContainer = document.getElementById('page-container')
     console.log(event.target.id)
     switch (event.target.id) {
         case 'home':
-            pageContainer.innerText = 'Home'
+            setPageContent('home')
             break;
         case 'cart':
-            pageContainer.innerText = 'Cart'
+            setPageContent('cart')
             break;
         default:
-            pageContainer.innerText = '404'
+            setPageContent('404')
             break;
     }
 }

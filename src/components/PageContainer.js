@@ -1,9 +1,11 @@
-import onNavClick from "../services/onNavClick"
+import elements from "../constants/elements"
+import HomePage from "../pages/HomePage"
 
 function PageContainer() {
     const main = document.createElement('main')
     main.setAttribute('id', 'page-container')
-    main.innerText = 'text'
+    elements.pageContainer = main
+    main.append(HomePage())
     return main
 }
 
