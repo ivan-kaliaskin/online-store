@@ -6,8 +6,6 @@
 }
 
 #app-container {
-  width: 600px;
-  height: 900px;
   box-sizing: border-box;
   margin: 0 auto;
   background-color: rgb(211, 255, 129);
