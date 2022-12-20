@@ -1,9 +1,10 @@
 import setPageContent from "./setPageContent"
 
-function onNavClick(event) {
-    if (!event.target.classList.contains('a')) { return }
-    console.log(event.target.id)
-    switch (event.target.id) {
+function onNavClick(event: Event): void {
+    const eventTarget = <Element>event.target
+    if (!eventTarget.classList.contains('a')) { return }
+    console.log(eventTarget!.id)
+    switch (eventTarget!.id) {
         case 'home':
             setPageContent('home')
             break;

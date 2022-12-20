@@ -5,11 +5,11 @@ import CartPage from "../pages/CartPage";
 function setPageContent(page) {
     switch (page) {
         case 'home':
-            elements.pageContainer.innerHTML = null
+            elements.pageContainer.innerHTML = ''
             elements.pageContainer.append(HomePage())
             break;
         case 'cart':
-            elements.pageContainer.innerHTML = null
+            elements.pageContainer.innerHTML = ''
             elements.pageContainer.append(CartPage())
             break;
         default:
