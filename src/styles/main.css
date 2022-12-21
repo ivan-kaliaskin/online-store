@@ -97,13 +97,40 @@ body {
 
 #page-container {
   display: flex;
+  height: 700px;
+  width: 100%;
   box-sizing: border-box;
   background-color: rgb(129, 219, 255);
 }
 
+#home-page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 700px;
+  width: 100%;
+  padding-top: 20px;
+}
+
+#home-page-filters-container {
+  display: flex;
+  width: 25%;
+  height: 90%;
+  background-color: rgb(95, 190, 88);
+}
+
+#home-page-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 65%;
+  height: 90%;
+  background-color: rgb(88, 113, 190);
+}
+
 .home-item {
-  width: 48px;
-  height: 24px;
+  width: 200px;
+  height: 200px;
+  margin: 10px 10px;
   box-sizing: border-box;
   background-color: tomato;
 }
