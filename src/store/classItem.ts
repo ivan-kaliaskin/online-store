@@ -11,6 +11,9 @@ class Item implements IItem {
         item.innerText = name
         this._element = item as Node
     }
+    render(string: string) {
+        this._element.innerText = string
+    }
 }
 
 export default Item
