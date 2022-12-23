@@ -6,15 +6,11 @@ function createLogo(): HTMLElement {
   link.classList.add('logo-link')
   link.setAttribute('href', '#')
 
-  const logoImage: HTMLDivElement = document.createElement('div')
-  logoImage.classList.add('logo-image')
-  logoImage.innerHTML = '🛍'
-
   const logoText: HTMLHeadingElement = document.createElement('h1')
   logoText.classList.add('logo-title')
   logoText.innerHTML = 'Online Store'
 
-  link.append(logoImage, logoText)
+  link.append(logoText)
 
   logoContainer.append(link)
 

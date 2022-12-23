@@ -59,6 +59,31 @@ body {
   color: #f5deb3;
 }
 
+.header-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0;
+  position: relative;
+}
+.header-cart__total {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  background-color: #181a1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border: 2px solid #ffa500;
+  color: #ffa500;
+  font-size: 16px;
+  border-radius: 50%;
+}
+
 .footer {
   background-color: #181a1c;
   color: #ffa500;
@@ -139,21 +164,15 @@ body {
   flex-wrap: wrap;
   text-decoration: none;
 }
-.logo-image {
-  display: flex;
-  align-items: center;
-  font-size: 64px;
-  line-height: 0.8;
-  color: #ffa500;
-  text-shadow: 0 0 10px rgb(88, 68, 68), 0 0 5px red, 0 0 10px red, 0 0 15px red;
-}
 .logo-title {
   margin: 0;
-  margin-top: 8px;
-  margin-left: 16px;
   font-size: 42px;
   color: #ffa500;
-  text-shadow: 0 0 10px rgb(184, 24, 24), 0 0 20px red, 0 0 30px red, 0 0 40px red;
+}
+@media screen and (max-width: 768px) {
+  .logo-title {
+    font-size: 32px;
+  }
 }
 
 .cart-item {
