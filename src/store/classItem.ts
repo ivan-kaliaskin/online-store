@@ -1,6 +1,4 @@
-interface IItem {
-    _element: Node
-}
+import IItem from '../interfaces_and_types/IItem'
 
 class Item implements IItem {
     _element
@@ -10,9 +8,6 @@ class Item implements IItem {
         item.setAttribute('id', `item-${name}`)
         item.innerText = name
         this._element = item as Node
-    }
-    render(string: string) {
-        this._element.innerText = string
     }
 }
 
