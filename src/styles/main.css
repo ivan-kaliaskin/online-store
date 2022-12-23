@@ -17,6 +17,16 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+  background-color: #3e0c01;
+}
+
+.main, .section {
+  flex: 1 0 auto;
+  padding: 16px 0;
+}
+
+.footer {
+  flex: 0 0 auto;
 }
 
 .container {
@@ -32,10 +42,12 @@ body {
   }
 }
 
-#app-container {
-  box-sizing: border-box;
-  margin: 0 auto;
-  background-color: rgb(211, 255, 129);
+.app-container {
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .header {
@@ -120,17 +132,14 @@ body {
 
 #page-container {
   display: flex;
-  height: 700px;
   width: 100%;
   box-sizing: border-box;
-  background-color: rgb(129, 219, 255);
 }
 
 #home-page-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  height: 700px;
   width: 100%;
   padding-top: 20px;
 }
@@ -146,7 +155,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 65%;
-  height: 90%;
   background-color: rgb(88, 113, 190);
 }
 
