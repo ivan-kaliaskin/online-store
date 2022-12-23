@@ -1,24 +1,28 @@
 import onNavClick from "../services/onNavClick"
 
 function Nav(): HTMLElement {
-    const nav: HTMLElement = document.createElement('nav')
-    nav.setAttribute('id', 'nav')
-    nav.addEventListener('click', onNavClick)
+  const nav: HTMLElement = document.createElement('nav')
+  nav.setAttribute('id', 'nav')
+  nav.addEventListener('click', onNavClick)
 
-    const a1: HTMLAnchorElement = document.createElement('a')
-    a1.setAttribute('id', 'home')
-    a1.classList.add('a')
-    a1.setAttribute('href', '#')
-    a1.innerText = 'home'
-    const a2: HTMLAnchorElement = document.createElement('a')
-    a2.setAttribute('id', 'cart')
-    a2.classList.add('a')
-    a2.setAttribute('href', '#')
-    a2.innerText = 'cart'
+  const cartIcon: string = `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none"><path stroke="#FF9100" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M22 54a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM50 54a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM6 10h8l6 34h32"/><path stroke="#FF9100" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M20 36h31.18a1 1 0 0 0 .981-.804l3.6-18A.999.999 0 0 0 54.78 16H16"/></svg>`
 
-    nav.append(a1, a2)
+  const cartLink: HTMLAnchorElement = document.createElement('a')
+  cartLink.setAttribute('id', 'cart')
+  cartLink.classList.add('header-cart')
+  cartLink.setAttribute('href', '#')
+  cartLink.innerText = 'cart'
+  cartLink.innerHTML = cartIcon
 
-    return nav
+  const cartTotal: HTMLDivElement = document.createElement('div')
+  cartTotal.classList.add('header-cart__total')
+  cartTotal.innerText = '0'
+
+  cartLink.append(cartTotal)
+
+  nav.append(cartLink)
+
+  return nav
 }
 
 export default Nav

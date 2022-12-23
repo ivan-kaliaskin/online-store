@@ -1,0 +1,19 @@
+.logo {
+
+  &-link {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    text-decoration: none;
+  }
+
+  &-title {
+    margin: 0;
+    font-size: 42px;
+    color: #ffa500;
+
+    @media screen and (max-width: 768px) {
+      font-size: 32px;
+    }
+  }
+}
