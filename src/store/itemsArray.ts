@@ -1,5 +1,11 @@
-import render from "../services/renderHomePageContent";
-
-let items: Array<string> = [/*{ name: 'hardcode item 1' }, { name: 'hardcode item 2' }*/]
+const items = {
+    _itemList: [],
+    set itemList(itemList) {
+        this._itemList = itemList
+    },
+    get itemList() {
+        return this._itemList
+    }
+}
 
 export default items
