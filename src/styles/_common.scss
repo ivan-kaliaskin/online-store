@@ -19,6 +19,16 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+  background-color: #3e0c01;
+}
+
+.main, .section {
+  flex: 1 0 auto;
+  padding: 16px 0;
+}
+
+.footer {
+  flex: 0 0 auto;
 }
 
 .container {
