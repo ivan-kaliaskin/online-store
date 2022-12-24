@@ -13,6 +13,17 @@ function ItemCard(oItem) { // oItem сейчас строка, а надо об�
     const itemFooter = document.createElement('footer')
     itemFooter.classList.add('item-footer')
 
+    const itemFooterDetailsBtn = document.createElement('button')
+    itemFooterDetailsBtn.classList.add('card-item-footer-btn')
+    itemFooterDetailsBtn.innerText = 'Details'
+
+    const itemFooterAddToCartBtn = document.createElement('button')
+    itemFooterAddToCartBtn.classList.add('card-item-footer-btn')
+    itemFooterAddToCartBtn.innerText = 'Add to cart'
+
+
+    itemFooter.append(itemFooterAddToCartBtn, itemFooterDetailsBtn)
+
     item.append(itemTitle, itemInfo, itemFooter)
 
     return item
