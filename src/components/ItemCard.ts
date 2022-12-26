@@ -1,14 +1,24 @@
 function ItemCard(oItem) { // oItem сейчас строка, а надо объект
     const item = document.createElement('article')
     item.classList.add('item')
-    item.setAttribute('id', `item-${oItem}`)
+    item.setAttribute('id', `item-${oItem.id}`)
 
     const itemTitle = document.createElement('h2')
     itemTitle.classList.add('item-title')
-    itemTitle.innerText = oItem
+    itemTitle.innerText = oItem.title
 
     const itemInfo = document.createElement('section')
     itemInfo.classList.add('item-info')
+
+    const itemInfoBrand = document.createElement('div')
+    itemInfoBrand.classList.add('item-info-line')
+    itemInfoBrand.innerText = `Brand: ${oItem.brand}`
+
+    const itemInfoPrice = document.createElement('div')
+    itemInfoPrice.classList.add('item-info-line')
+    itemInfoPrice.innerText = `Price: ${oItem.price}`
+
+    itemInfo.append(itemInfoBrand, itemInfoPrice)
 
     const itemFooter = document.createElement('footer')
     itemFooter.classList.add('item-footer')

@@ -3,8 +3,8 @@ import IItem from '../interfaces_and_types/IItem'
 
 class Item implements IItem {
     _element
-    constructor(name: string) {
-        this._element = ItemCard(name)
+    constructor(item) {
+        this._element = ItemCard(item)
     }
 }
 

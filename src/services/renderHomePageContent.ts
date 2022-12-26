@@ -12,8 +12,7 @@ function renderHomePageContent() {
             itemsArray.itemList = result.products
 
             const itemsElements: Node[] = result.products.map(el => {
-                const itemCard: HTMLDivElement = new Item(el.title)._element
-                itemCard.classList.add('item-card')
+                const itemCard: HTMLDivElement = new Item(el)._element
                 return itemCard
             })
             elements.itemsContainer.append(...itemsElements)
