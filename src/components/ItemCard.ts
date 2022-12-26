@@ -24,11 +24,11 @@ function ItemCard(oItem) { // oItem сейчас строка, а надо об�
     itemFooter.classList.add('item-footer')
 
     const itemFooterDetailsBtn = document.createElement('button')
-    itemFooterDetailsBtn.classList.add('card-item-footer-btn')
+    itemFooterDetailsBtn.classList.add('card-item-footer-btn', 'btn-to-details')
     itemFooterDetailsBtn.innerText = 'Details'
 
     const itemFooterAddToCartBtn = document.createElement('button')
-    itemFooterAddToCartBtn.classList.add('card-item-footer-btn')
+    itemFooterAddToCartBtn.classList.add('card-item-footer-btn', 'btn-to-cart')
     itemFooterAddToCartBtn.innerText = 'Add to cart'
 
 

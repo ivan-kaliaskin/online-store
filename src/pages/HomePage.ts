@@ -3,6 +3,7 @@ import items from "../store/itemsArray"
 import Item from "../store/classItem"
 import renderHomePageContent from "../services/renderHomePageContent"
 import elements from "../constants/elements"
+import onItemsContainerClick from "../services/onItemsContainerClick"
 
 function HomePage() {
     const homePageContainer: HTMLDivElement = document.createElement('div')
@@ -14,6 +15,7 @@ function HomePage() {
     const itemsContainer: HTMLDivElement = document.createElement('div')
     itemsContainer.setAttribute('id', 'home-page-items-container')
     elements.itemsContainer = itemsContainer
+    itemsContainer.addEventListener('click', onItemsContainerClick)
 
     renderHomePageContent()
 
