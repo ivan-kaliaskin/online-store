@@ -1,6 +1,11 @@
 .item {}
 
-.item-title {}
+.item-title {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 400;
+}
 
 .item-info {}
 
