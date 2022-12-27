@@ -1,4 +1,4 @@
-import renderDetailsPageContent from "./renderDetailsPageContent"
+import setPageContent from "./setPageContent"
 
 function onItemsContainerClick(event) {
     console.log(event.target)
@@ -12,7 +12,7 @@ function onItemsContainerClick(event) {
         switchToPage = 'details'
         const itemId = event.target.closest('article').id
         console.log('Подробности', itemId)
-        renderDetailsPageContent()
+        setPageContent('details')
         // TODO переход на нужную страницу
 
     }

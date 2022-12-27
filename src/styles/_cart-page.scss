@@ -1,6 +1,22 @@
-.cart-item {
-    width: 48px;
-    height: 24px;
+#cart-page-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
     box-sizing: border-box;
-    background-color: tan;
+    background-color: rgb(113, 197, 169);
+}
+
+#products-in-cart {
+    width: 500px;
+    height: 300px;
+    box-sizing: border-box;
+    background-color: rgb(197, 157, 113);
+}
+
+#summary {
+    width: 200px;
+    height: 300px;
+    box-sizing: border-box;
+    background-color: rgb(161, 113, 197);
 }

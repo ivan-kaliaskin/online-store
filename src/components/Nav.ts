@@ -1,4 +1,5 @@
 import onNavClick from "../services/onNavClick"
+import setPageContent from "../services/setPageContent"
 
 function Nav(): HTMLElement {
   const nav: HTMLElement = document.createElement('nav')
@@ -9,6 +10,8 @@ function Nav(): HTMLElement {
 
   const cartLink: HTMLAnchorElement = document.createElement('a')
   cartLink.setAttribute('id', 'cart')
+  cartLink.addEventListener('click', () => setPageContent('cart'))
+
   cartLink.classList.add('header-cart')
   cartLink.setAttribute('href', '#')
   cartLink.innerText = 'cart'
