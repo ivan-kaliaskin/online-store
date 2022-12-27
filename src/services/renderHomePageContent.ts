@@ -1,5 +1,5 @@
 import elements from "../constants/elements"
-import Item from "../store/classItem"
+import Item from "../components/Item"
 import itemsArray from "../store/itemsArray";
 
 function renderHomePageContent() {

@@ -1,6 +1,6 @@
 // Главная страница с товарами и фильтрами
 import items from "../store/itemsArray"
-import Item from "../store/classItem"
+import Item from "../components/Item"
 import renderHomePageContent from "../services/renderHomePageContent"
 import elements from "../constants/elements"
 import onItemsContainerClick from "../services/onItemsContainerClick"
