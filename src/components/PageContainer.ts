@@ -6,7 +6,7 @@ function PageContainer(): HTMLElement {
     main.setAttribute('id', 'page-container')
     main.classList.add('main')
     elements.pageContainer = main
-    main.append(HomePage())
+    main.append(HomePage(true))
     return main
 }
 

@@ -7,7 +7,7 @@ function setPageContent(page: string) {
     switch (page) {
         case 'home':
             elements.pageContainer.innerHTML = ''
-            elements.pageContainer.append(HomePage())
+            elements.pageContainer.append(HomePage(false))
             break;
         case 'details':
             elements.pageContainer.innerHTML = ''

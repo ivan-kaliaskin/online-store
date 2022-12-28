@@ -1,12 +1,10 @@
 // Главная страница с товарами и фильтрами
-import items from "../store/itemsArray"
-import Item from "../components/Item"
 import renderHomePageContent from "../services/renderHomePageContent"
 import elements from "../constants/elements"
 import onItemsContainerClick from "../services/onItemsContainerClick"
 import Filter from "../components/Filter"
 
-function HomePage() {
+function HomePage(bFromServer) {
     const homePageContainer: HTMLDivElement = document.createElement('div')
     homePageContainer.setAttribute('id', 'home-page-container')
 
@@ -21,7 +19,7 @@ function HomePage() {
     elements.itemsContainer = itemsContainer
     itemsContainer.addEventListener('click', onItemsContainerClick)
 
-    renderHomePageContent()
+    renderHomePageContent(bFromServer)
 
     // itemsContainer.append(...itemsElements)
     homePageContainer.append(filtersContainer, itemsContainer)

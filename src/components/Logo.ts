@@ -1,6 +1,9 @@
+import onLogoClick from "../services/onLogoClick"
+
 function createLogo(): HTMLElement {
   const logoContainer: HTMLDivElement = document.createElement('div')
   logoContainer.classList.add('logo')
+  logoContainer.addEventListener('click', onLogoClick)
 
   const link: HTMLAnchorElement = document.createElement('a')
   link.classList.add('logo-link')
