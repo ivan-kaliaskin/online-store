@@ -7,11 +7,24 @@
     background-color: rgb(113, 197, 169);
 }
 
-#products-in-cart {
+#products-in-cart-container {
     width: 500px;
     height: 300px;
     box-sizing: border-box;
     background-color: rgb(197, 157, 113);
+}
+
+#products-in-cart-container-title {
+    width: 100%;
+    height: 25px;
+    margin: 0;
+    background-color: rgb(43, 158, 83);
+}
+
+#product-in-list {
+    width: 100%;
+    height: 20px;
+    background-color: rgb(190, 89, 176);
 }
 
 #summary {

@@ -1,5 +1,7 @@
+import Item from "./TypeItem"
+
 type SelectedItem = {
-    id: number
+    item: Item
     amount: number
 }
 
