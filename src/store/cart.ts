@@ -1,14 +1,14 @@
-import Item from "../components/Item"
+import SelectedItem from "../interfaces_and_types/TypeSelectedItem"
 
 const cart = {
-    _selectedItems: [] as Array<Item>,
-    set selectedItems(items: Array<Item>) {
+    _selectedItems: [] as Array<SelectedItem>,
+    set selectedItems(items: Array<SelectedItem>) {
         this._selectedItems = items
     },
     get selectedItems() {
         return this._selectedItems
     },
-    addItemToCart(item: Item) {
+    addItemToCart(item: SelectedItem) {
         this._selectedItems.push(item)
     }
 }
