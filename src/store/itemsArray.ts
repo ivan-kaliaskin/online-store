@@ -1,6 +1,8 @@
+import Item from "../interfaces_and_types/TypeItem"
+
 const items = {
-    _itemList: [],
-    set itemList(itemList) {
+    _itemList: [] as Array<Item>,
+    set itemList(itemList: Array<Item>) {
         this._itemList = itemList
     },
     get itemList() {
