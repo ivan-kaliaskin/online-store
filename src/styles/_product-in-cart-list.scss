@@ -45,11 +45,18 @@
 }
 
 .cnt-button-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 180px;
     height: 48px;
     background-color: darkorange;
     box-sizing: border-box;
 }
+
+.cnt-btn-block-btn {}
+
+.cnt-btn-block-amount {}
 
 .cnt-total {
     width: 180px;

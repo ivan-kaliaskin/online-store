@@ -293,6 +293,9 @@ body {
 }
 
 .cnt-button-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 180px;
   height: 48px;
   background-color: darkorange;
