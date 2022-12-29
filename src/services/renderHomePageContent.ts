@@ -10,10 +10,12 @@ function renderHomePageContent(bFromServer: boolean) {
             let newItem: HTMLDivElement = new Item(el)._element
             if (el.selected === true) {
                 newItem = new Item(el)._element
-                newItem.classList.add('selected')
+                newItem.classList.add('selected');
+                (newItem.querySelector('.btn-to-cart') as HTMLElement)!.innerText = 'Drop from cart'
             } else {
                 newItem = new Item(el)._element
-                newItem.classList.remove('selected')
+                newItem.classList.remove('selected');
+                (newItem.querySelector('.btn-to-cart') as HTMLElement)!.innerText = 'Add to cart'
             }
             return newItem
         })
