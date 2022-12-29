@@ -2,8 +2,8 @@ import SelectedItem from "../interfaces_and_types/TypeSelectedItem"
 
 function ProductInCartList(product: SelectedItem, index: number) {
     const productInList = document.createElement('li') // один товар
-    productInList.classList.add('product-in-cart-list')
-    productInList.setAttribute('id', `product-in-list-${product.item.id}`)
+    productInList.classList.add('product-in-cart-item')
+    productInList.setAttribute('id', `product-in-item-${product.item.id}`)
 
     const orderNumber = document.createElement('div') // порядковый номер товара
     orderNumber.classList.add('picl-number')
@@ -14,7 +14,7 @@ function ProductInCartList(product: SelectedItem, index: number) {
 
     const productInfo = document.createElement('div') // информация о товаре
     productInfo.classList.add('picl-info')
-    productInfo.innerText = `${product.item.title}. Description: ${product.item.description}. Rating: ${product.item.rating}`
+    productInfo.innerHTML = `<span>${product.item.title}</span>. <p>Description: ${product.item.description}. Rating: ${product.item.rating}</p>`
     // другие свойства объекта item можно достать таким же образом: el.item... vscode подскажет какие существуют
 
     // --- start counter block --------------------------------------------------------------------------------------
