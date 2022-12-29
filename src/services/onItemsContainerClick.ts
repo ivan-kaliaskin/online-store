@@ -6,16 +6,28 @@ import SelectedItem from "../interfaces_and_types/TypeSelectedItem"
 function onItemsContainerClick(event) {
     let selectedItem: SelectedItem
     let switchToPage = ''
-    if (event.target.classList.contains('btn-to-cart')) {
-        const itemId = +event.target.closest('article').id.split('-')[1]
-        const item = items.itemList.find((item) => item.id === itemId)
-        if (item) {
+    const itemId = +event.target.closest('article').id.split('-')[1]
+    const item = items.itemList.find((item) => item.id === itemId)
+    if (event.target.classList.contains('btn-to-cart') && event.target.closest('article').classList.contains('selected')) { // удаление item из корзины
+        event.target.innerText = 'Add to cart'
+        event.target.closest('article').classList.remove('selected')// c item снимается зелёная рамка
+        item!.selected = false
+        selectedItem = {
+            item: item!,
+            amount: 1
+        }
+        cart.removeItemFormCart(selectedItem)
+    } else if (event.target.classList.contains('btn-to-cart')) {
+        event.target.closest('article').classList.add('selected') // на item вешается зелёная рамка
+        event.target.innerText = 'Drop to cart'
+        item!.selected = true
+        if (item) { // item существует
             selectedItem = {
                 item: item,
                 amount: 1
             }
         } else {
-            selectedItem = {
+            selectedItem = { // item не нашёлся
                 item: {
                     id: 0,
                     title: 'item not found'
@@ -24,15 +36,13 @@ function onItemsContainerClick(event) {
             }
         }
         cart.addItemToCart(selectedItem)
-        // TODO добавить товар в корзину и перерендерить хедер
+        // TODO перерендерить хедер
 
     } else if (event.target.closest('article')) {
         switchToPage = 'details'
         const itemId = event.target.closest('article').id
         console.log('Подробности', itemId)
         setPageContent('details')
-        // TODO переход на нужную страницу
-
     }
 }
 

@@ -2,11 +2,20 @@ import elements from "../constants/elements"
 import Item from "../components/Item"
 import typeItem from "../interfaces_and_types/TypeItem";
 import itemsArray from "../store/itemsArray";
+import cart from "../store/cart";
 
 function renderHomePageContent(bFromServer: boolean) {
     if (!bFromServer) {
         const itemsElements: Node[] = itemsArray.itemList.map(el => {
-            return new Item(el)._element as HTMLDivElement
+            let newItem: HTMLDivElement = new Item(el)._element
+            if (el.selected === true) {
+                newItem = new Item(el)._element
+                newItem.classList.add('selected')
+            } else {
+                newItem = new Item(el)._element
+                newItem.classList.remove('selected')
+            }
+            return newItem
         })
         elements.itemsContainer.innerHTML = ''
         elements.itemsContainer.append(...itemsElements)

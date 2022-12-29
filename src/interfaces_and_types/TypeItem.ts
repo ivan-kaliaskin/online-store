@@ -10,6 +10,7 @@ type Item = {
     category?: string,
     thumbnail?: string,
     images?: Array<string>
+    selected?: boolean
 }
 
 export default Item

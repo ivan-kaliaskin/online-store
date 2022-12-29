@@ -183,7 +183,6 @@ body {
 
 .item-title {
   margin: 0;
-  box-sizing: border-box;
   font-size: 16px;
   font-weight: 400;
 }
@@ -191,6 +190,10 @@ body {
 .item-info-line {
   font-size: 12px;
   color: lime;
+}
+
+.selected {
+  border: 3px rgb(0, 255, 0) solid;
 }
 
 #cart-page-container {
