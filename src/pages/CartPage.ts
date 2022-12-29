@@ -1,4 +1,6 @@
 //Страница корзины выбранных товаров
+import ProductInCartList from "../components/ProductInCartList"
+import SelectedItem from "../interfaces_and_types/TypeSelectedItem"
 import cart from "../store/cart"
 
 function CartPage() {
@@ -12,17 +14,13 @@ function CartPage() {
     productsInCartTitle.setAttribute('id', 'products-in-cart-container-title')
     productsInCartTitle.innerText = 'Products In Cart'
 
-    const productsInCartList = document.createElement('ol')
-
-    cart.selectedItems.forEach((el) => {
-        const elInList = document.createElement('li') // один товар
-        elInList.classList.add('product-in-list')
-        elInList.innerText = `${el.item.title}. Description: ${el.item.description}. Rating: ${el.item.rating}`
-        // другие свойства объекта item можно достать таким же образом: el.item... vscode подскажет какие существуют
-        productsInCartList.append(elInList)
+    const productsInCartListContainer = document.createElement('ul')
+    productsInCartListContainer.setAttribute('id', 'products-in-cart-list-container')
+    const productsInCartList = cart.selectedItems.map((product: SelectedItem, index: number) => {
+        return ProductInCartList(product, index)
     })
-
-    productsInCartContainer.append(productsInCartTitle, productsInCartList)
+    productsInCartListContainer.append(...productsInCartList)
+    productsInCartContainer.append(productsInCartTitle, productsInCartListContainer)
 
     const summary = document.createElement('div')
     summary.setAttribute('id', 'summary')
@@ -37,11 +35,11 @@ function CartPage() {
 
     const totalCost = document.createElement('div') // итоговая сумма
     totalCost.setAttribute('id', 'total-cost')
-    let ntotalCost = 0
+    let nTotalCost = 0
     cart.selectedItems.forEach((el) => {
-        ntotalCost += el.item.price!
+        nTotalCost += el.item.price!
     })
-    totalCost.innerText = `Total: ${ntotalCost}`
+    totalCost.innerText = `Total: ${nTotalCost}`
 
     const promocodeInput = document.createElement('input')
     promocodeInput.setAttribute('id', 'promocode-input')

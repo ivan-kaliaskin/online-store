@@ -1,0 +1,59 @@
+.product-in-cart-list {
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+.picl-number {
+    width: 36px;
+    height: 36px;
+    background-color: teal;
+    box-sizing: border-box;
+}
+
+.picl-image {
+    width: 120px;
+    height: 36px;
+    background-color: tomato;
+    box-sizing: border-box;
+}
+
+.picl-info {
+    width: 480px;
+    height: 36px;
+    background-color: tan;
+    box-sizing: border-box;
+}
+
+// --- counter properties ------------------------------------
+.picl-counter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 96px;
+    background-color: lightgreen;
+    box-sizing: border-box;
+}
+
+.cnt-stock {
+    width: 180px;
+    height: 24px;
+    background-color: lightcoral;
+    box-sizing: border-box;
+}
+
+.cnt-button-block {
+    width: 180px;
+    height: 48px;
+    background-color: darkorange;
+    box-sizing: border-box;
+}
+
+.cnt-total {
+    width: 180px;
+    height: 24px;
+    background-color: darkorchid;
+    box-sizing: border-box;
+}
