@@ -11,7 +11,7 @@ function Gallery(item: Item) {
     }) || []
 
     const productsGallery = document.createElement('div')
-    productsGallery.classList.add('products-gallery')
+    productsGallery.classList.add('product-gallery')
     productsGallery.append(...imageArray)
 
     return productsGallery

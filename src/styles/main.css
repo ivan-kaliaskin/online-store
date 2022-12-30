@@ -385,76 +385,82 @@ body {
   margin-top: 8px;
 }
 
-.details-page {
-  width: 75%;
-  height: 600px;
-  box-sizing: border-box;
-  background-color: rgb(255, 243, 105);
-}
-
-#link-navigation {
+.breadcrumbs {
   display: flex;
   justify-content: space-around;
-  height: 28px;
-  margin: 47px 0;
-  box-sizing: border-box;
-  background-color: rgb(98, 92, 162);
+  flex-wrap: wrap;
+}
+.breadcrumbs div {
+  font-size: 20px;
+  font-weight: 500;
+  color: #d2b06f;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+.breadcrumbs div:nth-child(2n) {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffa500;
 }
 
-#product-title {
+.product-inner {
+  width: 100%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  border: 1px solid #ffa500;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: rgba(30, 27, 27, 0.501961);
+  padding: 0.5%;
+  margin-top: 16px;
+}
+
+.product-title {
   height: 58px;
   box-sizing: border-box;
   background-color: rgb(92, 162, 153);
 }
 
-#product-data {
+.product-data {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  height: 410px;
-  box-sizing: border-box;
-  background-color: rgb(162, 92, 136);
 }
 
-.products-image {
-  width: 350px;
-  height: 100%;
-  box-sizing: border-box;
-  background-color: gold;
+.product-image-main {
+  max-height: 40vh;
+  width: auto;
+  max-width: 100%;
+  background-color: #cacaca;
 }
 
-.products-properties {
-  width: 120px;
-  height: 120px;
-  box-sizing: border-box;
-  background-color: maroon;
-}
-
-.products-order {
+.product-order {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 230px;
   height: 100%;
-  box-sizing: border-box;
-  background-color: tan;
 }
 
-#details-price {
+.details-price {
   font-size: 24px;
   font-weight: 600;
 }
 
-.products-gallery {
-  width: 100px;
-  box-sizing: border-box;
-  background-color: teal;
+.product-gallery {
+  display: flex;
+  flex-direction: column;
 }
 
 .product-image {
-  width: 100px;
-  box-sizing: border-box;
-  background-color: red;
+  width: 115px;
+  height: 115px;
+  background-color: #cacaca;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
 }
 
 .el-properties-container {

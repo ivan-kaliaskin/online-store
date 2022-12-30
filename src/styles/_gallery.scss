@@ -1,11 +1,12 @@
-.products-gallery {
-    width: 100px;
-    box-sizing: border-box;
-    background-color: teal;
+.product-gallery {
+  display: flex;
+  flex-direction: column;
 }
 
 .product-image {
-    width: 100px;
-    box-sizing: border-box;
-    background-color: red;
+  width: 115px;
+  height: 115px;
+  background-color: #cacaca;
+  object-fit: cover;
+  object-position: center center;
 }

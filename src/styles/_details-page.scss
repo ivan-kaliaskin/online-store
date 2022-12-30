@@ -1,59 +1,66 @@
-.details-page {
-    width: 75%;
-    height: 600px;
-    box-sizing: border-box;
-    background-color: rgb(255, 243, 105);
+.details-page {}
+
+.breadcrumbs {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  div {
+    font-size: 20px;
+    font-weight: 500;
+    color: #d2b06f;
+    text-transform: uppercase;
+    padding: 8px 0;
+
+    &:nth-child(2n) {
+      font-size: 20px;
+      font-weight: 500;
+      color: #ffa500;
+    }
+
+  }
+
 }
 
-#link-navigation {
-    display: flex;
-    justify-content: space-around;
-    height: 28px;
-    margin: 47px 0;
-    box-sizing: border-box;
-    background-color: rgb(98, 92, 162);
+.product-inner {
+  width: 100%;
+  height: min-content;
+  border: 1px solid #ffa500;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: rgba(30, 27, 27, 0.501961);
+  padding: 0.5%;
+  margin-top: 16px;
 }
 
-#product-title {
-    height: 58px;
-    box-sizing: border-box;
-    background-color: rgb(92, 162, 153);
+.product-title {
+  height: 58px;
+  box-sizing: border-box;
+  background-color: rgb(92, 162, 153);
 }
 
-#product-data {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 410px;
-    box-sizing: border-box;
-    background-color: rgb(162, 92, 136);
+.product-data {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.products-image {
-    width: 350px;
-    height: 100%;
-    box-sizing: border-box;
-    background-color: gold;
+.product-image-main {
+  max-height: 40vh;
+  width: auto;
+  max-width: 100%;
+  background-color: #cacaca;
 }
 
-.products-properties {
-    width: 120px;
-    height: 120px;
-    box-sizing: border-box;
-    background-color: maroon;
+.product-order {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 230px;
+  height: 100%;
 }
 
-.products-order {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 230px;
-    height: 100%;
-    box-sizing: border-box;
-    background-color: tan;
-}
-
-#details-price {
-    font-size: 24px;
-    font-weight: 600;
+.details-price {
+  font-size: 24px;
+  font-weight: 600;
 }

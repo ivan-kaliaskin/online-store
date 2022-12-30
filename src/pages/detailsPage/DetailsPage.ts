@@ -4,63 +4,71 @@ import ProductProperties from "./ProductProperties"
 
 // страница с описанием товара
 function DetailsPage(item: Item) {
-    const detailsPage = document.createElement('div')
-    detailsPage.classList.add('details-page')
+    const detailsPage: HTMLDivElement = document.createElement('div')
+    detailsPage.classList.add('details-page', 'container')
 
     if (item.id === 0) { // item не приходит
         detailsPage.innerText = 'item not found'
     } else { // item успешно приходит
-        const linkNavigation = document.createElement('div')
+        const linkNavigation: HTMLDivElement = document.createElement('div')
         linkNavigation.setAttribute('id', 'link-navigation')
+        linkNavigation.classList.add('breadcrumbs')
 
-        const storeTxt = document.createElement('div')
+        const storeTxt: HTMLDivElement = document.createElement('div')
         storeTxt.innerText = 'Store'
-        const categoryTxt = document.createElement('div')
+        const categoryTxt: HTMLDivElement = document.createElement('div')
         categoryTxt.innerText = `${item.category}`
-        const brandTxt = document.createElement('div')
+        const brandTxt: HTMLDivElement = document.createElement('div')
         brandTxt.innerText = `${item.brand}`
-        const nameTxt = document.createElement('div')
+        const nameTxt: HTMLDivElement = document.createElement('div')
         nameTxt.innerText = `${item.title}`
-        const pointerTxt1 = document.createElement('div')
+        const pointerTxt1: HTMLDivElement = document.createElement('div')
         pointerTxt1.innerText = '>>'
-        const pointerTxt2 = document.createElement('div')
+        const pointerTxt2: HTMLDivElement = document.createElement('div')
         pointerTxt2.innerText = '>>'
-        const pointerTxt3 = document.createElement('div')
+        const pointerTxt3: HTMLDivElement = document.createElement('div')
         pointerTxt3.innerText = '>>'
 
         linkNavigation.append(storeTxt, pointerTxt1, categoryTxt, pointerTxt2, brandTxt, pointerTxt3, nameTxt)
 
-        const productTitle = document.createElement('h1')
+        const productInner: HTMLDivElement = document.createElement('div')
+        productInner.classList.add('product-inner')
+
+        const productTitle: HTMLHeadingElement = document.createElement('h1')
         productTitle.setAttribute('id', 'product-title')
+        productTitle.classList.add('product-title')
         productTitle.innerText = item.title
 
-        const productData = document.createElement('div')
+        const productData: HTMLDivElement = document.createElement('div')
         productData.setAttribute('id', 'product-data')
+        productData.classList.add('product-data')
 
         const productsGallery = Gallery(item)
 
-        const productImage = document.createElement('div')
-        productImage.classList.add('products-image')
+        const productImage: HTMLDivElement = document.createElement('div')
+        productImage.classList.add('product-image-main')
 
-        const productOrder = document.createElement('div')
-        productOrder.classList.add('products-order')
+        const productOrder: HTMLDivElement = document.createElement('div')
+        productOrder.classList.add('product-order')
 
-        const price = document.createElement('div')
+        const price: HTMLDivElement = document.createElement('div')
         price.setAttribute('id', 'details-price')
+        price.classList.add('details-price')
         price.innerText = `$${item.price}`
 
-        const toggleCartBtn = document.createElement('button')
+        const toggleCartBtn: HTMLButtonElement = document.createElement('button')
         toggleCartBtn.classList.add('details-buttons')
         toggleCartBtn.innerText = `${item.selected ? 'Drop from cart' : 'Add to cart'}` // TODO выкинуть/закинуть в корзину
 
-        const buyNowBtn = document.createElement('button')
+        const buyNowBtn: HTMLButtonElement = document.createElement('button')
         buyNowBtn.classList.add('details-buttons')
         buyNowBtn.innerText = 'Buy now'
 
         productOrder.append(price, toggleCartBtn, buyNowBtn)
 
         productData.append(productsGallery, productImage, ProductProperties(item), productOrder)
-        detailsPage.append(linkNavigation, productTitle, productData)
+        productInner.append(productTitle, productData)
+        detailsPage.append(linkNavigation, productInner)
     }
     return detailsPage
 }
