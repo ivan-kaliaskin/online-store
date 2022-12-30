@@ -417,20 +417,23 @@ body {
 }
 
 .product-title {
-  height: 58px;
-  box-sizing: border-box;
-  background-color: rgb(92, 162, 153);
+  margin: 0;
+  padding-bottom: 14px;
+  text-align: center;
+  border-bottom: 1px solid #ffa500;
+  font-size: 32px;
+  color: #ffa500;
 }
 
 .product-data {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px 8px;
 }
 
 .product-image-main {
-  max-height: 40vh;
-  width: auto;
+  height: 100%;
+  width: 350px;
   max-width: 100%;
   background-color: #cacaca;
 }
@@ -438,19 +441,49 @@ body {
 .product-order {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 230px;
-  height: 100%;
+  justify-content: space-between;
+  width: 25%;
 }
 
 .details-price {
-  font-size: 24px;
+  font-size: 42px;
   font-weight: 600;
+  color: #d2b06f;
+  text-align: center;
+}
+
+.details-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.details-buttons {
+  width: 100%;
+  color: #ffa500;
+  font-size: 18px;
+  background-color: #181a1c;
+  border: 1px solid #ffa500;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+}
+.details-buttons:hover {
+  background-color: #ffa500;
+  color: #fff;
+}
+.details-buttons:focus {
+  background-color: #ffa500;
+  color: #fff;
 }
 
 .product-gallery {
   display: flex;
   flex-direction: column;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+  row-gap: 8px;
 }
 
 .product-image {
@@ -461,19 +494,37 @@ body {
      object-fit: cover;
   -o-object-position: center center;
      object-position: center center;
+  border: 1px solid #ffa500;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .el-properties-container {
-  width: 40%;
-  background-color: rgb(202, 177, 255);
+  width: 30%;
+  border: 1px solid #ffa500;
+  border-radius: 8px;
+  padding: 16px 8px;
+}
+
+.el-property-container {
+  margin-bottom: 16px;
+}
+.el-property-container:last-child {
+  margin-bottom: initial;
 }
 
 .el-property-title {
   margin: 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ffa500;
+  font-size: 20px;
+  color: #ffa500;
 }
 
 .el-property-info {
   margin: 0;
+  margin-top: 4px;
+  color: #d2b06f;
 }
 
 .footer {

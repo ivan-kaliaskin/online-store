@@ -56,6 +56,9 @@ function DetailsPage(item: Item) {
         price.classList.add('details-price')
         price.innerText = `$${item.price}`
 
+        const btnsWrapper = document.createElement('div')
+        btnsWrapper.classList.add('details-buttons-wrapper')
+
         const toggleCartBtn: HTMLButtonElement = document.createElement('button')
         toggleCartBtn.classList.add('details-buttons')
         toggleCartBtn.innerText = `${item.selected ? 'Drop from cart' : 'Add to cart'}` // TODO выкинуть/закинуть в корзину
@@ -64,8 +67,8 @@ function DetailsPage(item: Item) {
         buyNowBtn.classList.add('details-buttons')
         buyNowBtn.innerText = 'Buy now'
 
-        productOrder.append(price, toggleCartBtn, buyNowBtn)
-
+        btnsWrapper.append(toggleCartBtn, buyNowBtn)
+        productOrder.append(price, btnsWrapper)
         productData.append(productsGallery, productImage, ProductProperties(item), productOrder)
         productInner.append(productTitle, productData)
         detailsPage.append(linkNavigation, productInner)
