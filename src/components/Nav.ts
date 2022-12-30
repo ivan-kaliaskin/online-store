@@ -1,3 +1,4 @@
+import elements from "../constants/elements"
 import onNavClick from "../services/onNavClick"
 import setPageContent from "../services/setPageContent"
 
@@ -19,6 +20,7 @@ function Nav(): HTMLElement {
 
   const cartTotal: HTMLDivElement = document.createElement('div')
   cartTotal.classList.add('header-cart__total')
+  elements.cartTotal = cartTotal
   cartTotal.innerText = '0'
 
   cartLink.append(cartTotal)

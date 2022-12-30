@@ -1,5 +1,6 @@
 import Nav from './Nav'
 import Logo from './Logo'
+import elements from '../constants/elements'
 
 function Header(): HTMLElement {
     const body: HTMLElement | null = document.getElementById('body')
@@ -15,11 +16,12 @@ function Header(): HTMLElement {
 
     const spanText: HTMLSpanElement = document.createElement('span')
     spanText.classList.add('price-text')
-    spanText.innerHTML = 'Cart total:'
+    spanText.innerHTML = 'Cart total: '
 
     const spanNumber: HTMLSpanElement = document.createElement('span')
     spanNumber.classList.add('price-number')
     spanNumber.innerHTML = '€0.00'
+    elements.priceNumber = spanNumber
 
     price.append(spanText, spanNumber)
 

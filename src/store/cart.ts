@@ -11,8 +11,8 @@ const cart = {
     addItemToCart(item: SelectedItem) {
         this._selectedItems.push(item)
     },
-    removeItemFormCart(item: SelectedItem) {
-        this._selectedItems = this._selectedItems.filter((el) => { el !== item })
+    removeItemFormCart(itemId: number) {
+        this._selectedItems = this._selectedItems.filter((el: SelectedItem) => el.item.id !== itemId)
     }
 }
 

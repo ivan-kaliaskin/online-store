@@ -2,6 +2,7 @@ import setPageContent from "./setPageContent"
 import items from "../store/itemsArray"
 import cart from "../store/cart"
 import SelectedItem from "../interfaces_and_types/TypeSelectedItem"
+import refreshHeader from "./refreshHeader"
 
 function onItemsContainerClick(event) {
     let selectedItem: SelectedItem
@@ -16,10 +17,11 @@ function onItemsContainerClick(event) {
             item: item!,
             amount: 1
         }
-        cart.removeItemFormCart(selectedItem)
+        cart.removeItemFormCart(itemId)
+        refreshHeader()
     } else if (event.target.classList.contains('btn-to-cart')) {
         event.target.closest('article').classList.add('selected') // на item вешается зелёная рамка
-        event.target.innerText = 'Drop to cart'
+        event.target.innerText = 'Drop from cart'
         item!.selected = true
         if (item) { // item существует
             selectedItem = {
@@ -36,8 +38,7 @@ function onItemsContainerClick(event) {
             }
         }
         cart.addItemToCart(selectedItem)
-        // TODO перерендерить хедер
-
+        refreshHeader()
     } else if (event.target.closest('article')) {
         switchToPage = 'details'
         const itemId = event.target.closest('article').id
