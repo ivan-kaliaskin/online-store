@@ -1,10 +1,10 @@
 import elements from "../constants/elements"
 import HomePage from "../pages/HomePage";
 import CartPage from "../pages/CartPage";
-import DetailsPage from "../pages/DetailsPage";
+import DetailsPage from "../pages/detailsPage/DetailsPage";
 import Item from "../interfaces_and_types/TypeItem";
 
-function setPageContent(page: string, item: Item) {
+function setPageContent(page: string, item: Item = { id: 0, title: '' }) {
     switch (page) {
         case 'home':
             elements.pageContainer.innerHTML = ''
@@ -22,7 +22,6 @@ function setPageContent(page: string, item: Item) {
             elements.pageContainer.innerText = '404'
             break;
     }
-    console.log('страница', page)
 }
 
 export default setPageContent

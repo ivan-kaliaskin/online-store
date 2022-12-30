@@ -45,7 +45,6 @@ function onItemsContainerClick(event) {
     } else if (event.target.closest('article')) {
         switchToPage = 'details'
         const itemId = event.target.closest('article').id
-        console.log('Подробности', itemId)
 
         setPageContent('details', item)
     }
