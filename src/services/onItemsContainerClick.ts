@@ -8,7 +8,10 @@ function onItemsContainerClick(event) {
     let selectedItem: SelectedItem
     let switchToPage = ''
     const itemId = +event.target.closest('article').id.split('-')[1]
-    const item = items.itemList.find((item) => item.id === itemId)
+    const item = items.itemList.find((item) => item.id === itemId) || {
+        id: 0,
+        title: 'not found',
+    }
     if (event.target.classList.contains('btn-to-cart') && event.target.closest('article').classList.contains('selected')) { // удаление item из корзины
         event.target.innerText = 'Add to cart'
         event.target.closest('article').classList.remove('selected')// c item снимается зелёная рамка
@@ -43,7 +46,8 @@ function onItemsContainerClick(event) {
         switchToPage = 'details'
         const itemId = event.target.closest('article').id
         console.log('Подробности', itemId)
-        setPageContent('details')
+
+        setPageContent('details', item)
     }
 }
 

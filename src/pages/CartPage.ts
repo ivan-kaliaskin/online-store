@@ -51,7 +51,7 @@ function CartPage() {
 
     const promocodeInput = document.createElement('input')
     promocodeInput.setAttribute('id', 'promocode-input')
-    promocodeInput.setAttribute('value', 'enter promo code')
+    promocodeInput.setAttribute('placeholder', 'enter promo code')
     promocodeInput.classList.add('promocode-input')
 
     const buyNowButton = document.createElement('button')
