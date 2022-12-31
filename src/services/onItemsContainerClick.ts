@@ -12,7 +12,8 @@ function onItemsContainerClick(event) {
         id: 0,
         title: 'not found',
     }
-    if (event.target.classList.contains('btn-to-cart') && event.target.closest('article').classList.contains('selected')) { // удаление item из корзины
+    // удаление item из корзины
+    if (event.target.classList.contains('btn-to-cart') && event.target.closest('article').classList.contains('selected')) {
         event.target.innerText = 'Add to cart'
         event.target.closest('article').classList.remove('selected')// c item снимается зелёная рамка
         item!.selected = false
