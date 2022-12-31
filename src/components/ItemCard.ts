@@ -1,6 +1,9 @@
-function ItemCard(oItem) { // oItem сейчас строка, а надо объект
-    const item = document.createElement('article')
+import typeItem from "../interfaces_and_types/TypeItem"
+
+function ItemCard(oItem: typeItem) { // oItem сейчас строка, а надо объект
+    const item = document.createElement('div')
     item.classList.add('item')
+    item.style.backgroundImage = `url("${oItem.images?.reverse()[0]}")`
     item.setAttribute('id', `item-${oItem.id}`)
 
     const itemTitle = document.createElement('h2')
