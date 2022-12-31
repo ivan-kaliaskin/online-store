@@ -16,6 +16,7 @@ function HomePage(bFromServer) {
 
     const itemsContainer: HTMLDivElement = document.createElement('div')
     itemsContainer.setAttribute('id', 'home-page-items-container')
+    itemsContainer.classList.add('home-page-items-container')
     elements.itemsContainer = itemsContainer
     itemsContainer.addEventListener('click', onItemsContainerClick)
 
