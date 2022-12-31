@@ -4,7 +4,7 @@ function filterItemRender(array: string[], filterItem: HTMLElement) {
     listItem.classList.add('filter-item')
 
     const listItemCheckbox: HTMLInputElement = document.createElement('input')
-    listItemCheckbox.classList.add('filter-item-checbox')
+    listItemCheckbox.classList.add('filter-item-checkbox')
     listItemCheckbox.setAttribute('id', item)
     listItemCheckbox.setAttribute('type', 'checkbox')
 
