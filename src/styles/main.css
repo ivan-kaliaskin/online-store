@@ -138,14 +138,6 @@ body {
   background-color: rgb(88, 113, 190);
 }
 
-.item {
-  width: 200px;
-  height: 200px;
-  margin: 10px 10px;
-  box-sizing: border-box;
-  background-color: tomato;
-}
-
 .home-page-filters-container {
   display: flex;
   width: 20%;
@@ -180,6 +172,15 @@ body {
 }
 .filter-item-count {
   margin-left: auto;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  margin: 10px 10px;
+  background-color: #cacaca;
+  background-size: cover;
+  background-position: center center;
 }
 
 .item-title {
