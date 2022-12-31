@@ -13,6 +13,19 @@ const cart = {
     },
     removeItemFormCart(itemId: number) {
         this._selectedItems = this._selectedItems.filter((el: SelectedItem) => el.item.id !== itemId)
+    },
+    changeItemAmount(incomingItemId: number, action: string) {
+        this._selectedItems.forEach((item: SelectedItem) => {
+            if (item.item.id === incomingItemId) {
+                const newAmount = (action === 'plus')
+                    ? item.item.stock === item.amount ? item.amount : item.amount++
+                    : item.amount--
+                item = { ...item, amount: newAmount }
+            }
+        })
+        this._selectedItems = [...this._selectedItems].filter((item: SelectedItem) => {
+            return item.amount
+        })
     }
 }
 

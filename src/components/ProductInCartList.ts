@@ -29,7 +29,7 @@ function ProductInCartList(product: SelectedItem, index: number) {
     cntButtonBlock.classList.add('cnt-button-block')
 
     const cntButtonBlockButtonPlus = document.createElement('button') // в счётчике - кнопка +
-    cntButtonBlockButtonPlus.classList.add('cnt-btn-block-btn')
+    cntButtonBlockButtonPlus.classList.add('cnt-btn-block-btn', 'plus-btn')
     cntButtonBlockButtonPlus.innerText = '+'
 
     const cntButtonBlockAmount = document.createElement('div') // в счётчике - количество
@@ -37,7 +37,7 @@ function ProductInCartList(product: SelectedItem, index: number) {
     cntButtonBlockAmount.innerText = `${product.amount}`
 
     const cntButtonBlockButtonMinus = document.createElement('button') // в счётчике - кнопка -
-    cntButtonBlockButtonMinus.classList.add('cnt-btn-block-btn')
+    cntButtonBlockButtonMinus.classList.add('cnt-btn-block-btn', 'minus-btn')
     cntButtonBlockButtonMinus.innerText = '-'
 
     cntButtonBlock.append(cntButtonBlockButtonPlus, cntButtonBlockAmount, cntButtonBlockButtonMinus)

@@ -1,6 +1,7 @@
 //Страница корзины выбранных товаров
 import ProductInCartList from "../components/ProductInCartList"
 import SelectedItem from "../interfaces_and_types/TypeSelectedItem"
+import onPlusMinusClick from "../services/onPlusMinusClick"
 import cart from "../store/cart"
 
 function CartPage() {
@@ -25,6 +26,8 @@ function CartPage() {
     })
     productsInCartListContainer.append(...productsInCartList)
     productsInCartContainer.append(productsInCartTitle, productsInCartListContainer)
+    productsInCartContainer.addEventListener('click', onPlusMinusClick)
+
 
     const summary: HTMLDivElement = document.createElement('div')
     summary.setAttribute('id', 'summary')
