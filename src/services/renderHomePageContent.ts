@@ -4,6 +4,8 @@ import itemsArray from "../store/itemsArray";
 import typeItem from "../interfaces_and_types/TypeItem"
 import SelectedItem from "../interfaces_and_types/TypeSelectedItem";
 import cart from "../store/cart";
+import filters from "../store/filters"
+import FilterEntry from "../interfaces_and_types/TypeFilterEntry";
 
 function renderHomePageContent(bFromServer: boolean) {
     // переход с других страниц
@@ -30,6 +32,29 @@ function renderHomePageContent(bFromServer: boolean) {
             .then(result => {
                 const products: [typeItem] = result.products
                 itemsArray.itemList = products
+
+                const fGetFilterProperties = (sFilterProperty: string) => {
+                    const aProperties = products.map((item: typeItem) => item[sFilterProperty])
+                    let oProperties = {};
+
+                    for (let elem of aProperties) {
+                        if (oProperties[elem] === undefined) {
+                            oProperties[elem] = 1;
+                        } else {
+                            oProperties[elem]++;
+                        }
+                    }
+                    const aEntries: Array<FilterEntry> = Object.entries(oProperties).map((entry) => ({
+                        entryName: entry[0],
+                        isEntrySelected: false,
+                        entryTotalAmount: Number(entry[1]),
+                        entryCurrentAmount: Number(entry[1])
+                    }))
+                    return aEntries
+                }
+
+                filters.addFilter('category', fGetFilterProperties('category'))
+                filters.addFilter('brand', fGetFilterProperties('brand'))
 
                 const itemsElements: Node[] = products.map(el => {
                     return new Item(el)._element as HTMLDivElement

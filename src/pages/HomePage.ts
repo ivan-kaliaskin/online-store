@@ -2,7 +2,7 @@
 import renderHomePageContent from "../services/renderHomePageContent"
 import elements from "../constants/elements"
 import onItemsContainerClick from "../services/onItemsContainerClick"
-import Filter from "../components/Filter"
+import FiltersContainer from "../components/FiltersContainer"
 
 function HomePage(bFromServer) {
     const homePageContainer: HTMLDivElement = document.createElement('div')
@@ -12,7 +12,7 @@ function HomePage(bFromServer) {
     filtersContainer.setAttribute('id', 'home-page-filters-container')
     filtersContainer.classList.add('home-page-filters-container')
 
-    filtersContainer.append(Filter())
+    filtersContainer.append(FiltersContainer())
 
     const itemsContainer: HTMLDivElement = document.createElement('div')
     itemsContainer.setAttribute('id', 'home-page-items-container')
