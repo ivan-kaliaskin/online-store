@@ -8,7 +8,6 @@ function onItemsContainerClick(event) {
     let selectedItem: SelectedItem
     let switchToPage = ''
     const itemId = +event.target.closest('div').id.split('-')[1]
-    console.log(event.target)
     const item = items.itemList.find((item) => item.id === itemId) || {
         id: 0,
         title: 'not found',
