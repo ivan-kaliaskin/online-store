@@ -7,15 +7,15 @@ import refreshHeader from "./refreshHeader"
 function onItemsContainerClick(event) {
     let selectedItem: SelectedItem
     let switchToPage = ''
-    const itemId = +event.target.closest('article').id.split('-')[1]
+    const itemId = +event.target.closest('div').id.split('-')[1]
     const item = items.itemList.find((item) => item.id === itemId) || {
         id: 0,
         title: 'not found',
     }
     // удаление item из корзины
-    if (event.target.classList.contains('btn-to-cart') && event.target.closest('article').classList.contains('selected')) {
+    if (event.target.classList.contains('btn-to-cart') && event.target.closest('div').classList.contains('selected')) {
         event.target.innerText = 'Add to cart'
-        event.target.closest('article').classList.remove('selected')// c item снимается зелёная рамка
+        event.target.closest('div').classList.remove('selected')// c item снимается зелёная рамка
         item!.selected = false
         selectedItem = {
             item: item!,
@@ -24,7 +24,7 @@ function onItemsContainerClick(event) {
         cart.removeItemFormCart(itemId)
         refreshHeader()
     } else if (event.target.classList.contains('btn-to-cart')) {
-        event.target.closest('article').classList.add('selected') // на item вешается зелёная рамка
+        event.target.closest('div').classList.add('selected') // на item вешается зелёная рамка
         event.target.innerText = 'Drop from cart'
         item!.selected = true
         if (item) { // item существует
@@ -43,9 +43,9 @@ function onItemsContainerClick(event) {
         }
         cart.addItemToCart(selectedItem)
         refreshHeader()
-    } else if (event.target.closest('article')) {
+    } else if (event.target.closest('div')) {
         switchToPage = 'details'
-        const itemId = event.target.closest('article').id
+        const itemId = event.target.closest('div').id
 
         setPageContent('details', item)
     }
