@@ -3,6 +3,8 @@ import ProductInCartList from "../components/ProductInCartList"
 import SelectedItem from "../interfaces_and_types/TypeSelectedItem"
 import onPlusMinusClick from "../services/onPlusMinusClick"
 import cart from "../store/cart"
+import elements from "../constants/elements"
+import refreshSummary from "../services/refreshSummary"
 
 function CartPage() {
     const itemsContainer: HTMLDivElement = document.createElement('div')
@@ -25,6 +27,7 @@ function CartPage() {
         return ProductInCartList(product, index)
     })
     productsInCartListContainer.append(...productsInCartList)
+    elements.productsInCartListContainer = productsInCartListContainer
     productsInCartContainer.append(productsInCartTitle, productsInCartListContainer)
     productsInCartContainer.addEventListener('click', onPlusMinusClick)
 
@@ -41,16 +44,13 @@ function CartPage() {
     const productsAmount: HTMLDivElement = document.createElement('div') // количество товаров
     productsAmount.setAttribute('id', 'summary-amount')
     productsAmount.classList.add('summary-amount')
-    productsAmount.innerHTML = `Products: <span>${cart.selectedItems.length}</span>`
+    elements.productsAmount = productsAmount
 
     const totalCost: HTMLDivElement = document.createElement('div') // итоговая сумма
     totalCost.setAttribute('id', 'total-cost')
     totalCost.classList.add('total-cost')
-    let nTotalCost = 0
-    cart.selectedItems.forEach((el) => {
-        nTotalCost += el.item.price!
-    })
-    totalCost.innerHTML = `Total: <span>${nTotalCost}</span>`
+    elements.totalCost = totalCost
+    refreshSummary()
 
     const promocodeInput = document.createElement('input')
     promocodeInput.setAttribute('id', 'promocode-input')

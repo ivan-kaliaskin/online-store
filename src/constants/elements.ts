@@ -6,7 +6,13 @@ const elements: {
     _priceNumber: HTMLElement,
     priceNumber: HTMLElement,
     _cartTotal: HTMLElement,
-    cartTotal: HTMLElement
+    cartTotal: HTMLElement,
+    _productsInCartListContainer: HTMLElement,
+    productsInCartListContainer: HTMLElement,
+    _productsAmount: HTMLElement,
+    productsAmount: HTMLElement,
+    _totalCost: HTMLElement,
+    totalCost: HTMLElement,
 } = {
     _itemsContainer: null!,
     set itemsContainer(oItemsContainer: HTMLElement) {
@@ -35,7 +41,28 @@ const elements: {
     },
     get cartTotal(): HTMLElement {
         return this._cartTotal
-    }
+    },
+    _productsInCartListContainer: null!,
+    set productsInCartListContainer(oProductsInCartListContainer: HTMLElement) {
+        this._productsInCartListContainer = oProductsInCartListContainer
+    },
+    get productsInCartListContainer(): HTMLElement {
+        return this._productsInCartListContainer
+    },
+    _productsAmount: null!,
+    set productsAmount(oProductsAmount: HTMLElement) {
+        this._productsAmount = oProductsAmount
+    },
+    get productsAmount(): HTMLElement {
+        return this._productsAmount
+    },
+    _totalCost: null!,
+    set totalCost(oTotalCost: HTMLElement) {
+        this._totalCost = oTotalCost
+    },
+    get totalCost(): HTMLElement {
+        return this._totalCost
+    },
 }
 
 export default elements
