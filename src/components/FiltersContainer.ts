@@ -1,6 +1,7 @@
 import filterItemRender from "./FilterItemRender"
 import attributeRender from "./AttributeRender"
 import Filter from "./Filter"
+import elements from "../constants/elements"
 
 function createFilter(): HTMLElement {
 
@@ -70,6 +71,7 @@ function createFilter(): HTMLElement {
   btns.append(btnReset, btnCopy)
 
   filter.append(category, brand, price, btns)
+  elements.filtersContainer = filter
 
   return filter
 }

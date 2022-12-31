@@ -1,4 +1,5 @@
 type FilterEntry = {
+    id: string,
     entryName: string,
     isEntrySelected: boolean,
     entryTotalAmount: number,

@@ -6,6 +6,7 @@ import SelectedItem from "../interfaces_and_types/TypeSelectedItem";
 import cart from "../store/cart";
 import filters from "../store/filters"
 import FilterEntry from "../interfaces_and_types/TypeFilterEntry";
+import Filter from "../components/Filter";
 
 function renderHomePageContent(bFromServer: boolean) {
     // переход с других страниц
@@ -44,7 +45,8 @@ function renderHomePageContent(bFromServer: boolean) {
                             oProperties[elem]++;
                         }
                     }
-                    const aEntries: Array<FilterEntry> = Object.entries(oProperties).map((entry) => ({
+                    const aEntries: Array<FilterEntry> = Object.entries(oProperties).map((entry, index: number) => ({
+                        id: `${sFilterProperty}-${index}`,
                         entryName: entry[0],
                         isEntrySelected: false,
                         entryTotalAmount: Number(entry[1]),
@@ -53,8 +55,10 @@ function renderHomePageContent(bFromServer: boolean) {
                     return aEntries
                 }
 
-                filters.addFilter('category', fGetFilterProperties('category'))
-                filters.addFilter('brand', fGetFilterProperties('brand'))
+                filters.addFilter('category', "Category", fGetFilterProperties('category'))
+                filters.addFilter('brand', "Brand", fGetFilterProperties('brand'))
+
+                elements.filtersContainer.append(Filter('category'))
 
                 const itemsElements: Node[] = products.map(el => {
                     return new Item(el)._element as HTMLDivElement

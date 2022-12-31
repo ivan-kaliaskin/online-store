@@ -1,19 +1,49 @@
-import Item from "../interfaces_and_types/TypeItem"
-import items from "../store/itemsArray"
+import Filter from "../interfaces_and_types/TypeFilter"
+import filters from "../store/filters"
 
 function Filter(filterProperty: string) {
-    const aItems = items.itemList
-    const aProperties = aItems.map((item: Item) => item[filterProperty])
-    let oProperties = {};
+    const aAllFilters: Array<Filter> = filters.filters
+    console.log(aAllFilters, filterProperty)
+    const oFilter = aAllFilters.find((f: Filter) => f.filterName === filterProperty)
 
-    for (let elem of aProperties) {
-        if (oProperties[elem] === undefined) {
-            oProperties[elem] = 1;
-        } else {
-            oProperties[elem]++;
-        }
+    const filterWrapper = document.createElement('div')
+    filterWrapper.classList.add('filter-wrapper')
+
+    const filterTitle = document.createElement('h3')
+    filterTitle.classList.add('filter-title')
+    filterTitle.innerText = oFilter ? oFilter.filterLabel : `filter ${filterProperty} not found`
+
+    const filterList = document.createElement('section')
+    filterList.classList.add('filter-list')
+
+    if (oFilter) {
+        const aFilterList = oFilter.filterEntries.map(item => {
+            const listItem: HTMLDivElement = document.createElement('div')
+            listItem.classList.add('filter-item')
+
+            const listItemCheckbox: HTMLInputElement = document.createElement('input')
+            listItemCheckbox.classList.add('filter-item-checkbox')
+            listItemCheckbox.setAttribute('id', item.id)
+            listItemCheckbox.setAttribute('type', 'checkbox')
+
+            const listItemLabel: HTMLLabelElement = document.createElement('label')
+            listItemLabel.setAttribute('for', item.id)
+            listItemLabel.classList.add('filter-item-label')
+            listItemLabel.innerHTML = item.entryName
+
+            const count: HTMLSpanElement = document.createElement('span')
+            count.classList.add('filter-item-count')
+            count.innerHTML = `${item.entryCurrentAmount}/${item.entryTotalAmount}`
+
+            listItem.append(listItemCheckbox, listItemLabel, count)
+            return listItem
+        })
+
+        filterList.append(...aFilterList)
     }
-    console.log(oProperties)
+
+    filterWrapper.append(filterTitle, filterList)
+    return filterWrapper
 }
 
 export default Filter
