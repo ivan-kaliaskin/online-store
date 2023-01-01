@@ -1,4 +1,5 @@
 import filters from "../store/filters"
+import items from "../store/itemsArray"
 
 function onFilterChange(event): void {
     const changedFilter = event.target as HTMLInputElement
@@ -9,9 +10,10 @@ function onFilterChange(event): void {
             changedFilter.id.split('-')[0],
             +changedFilter.id.split('-')[1],
             changedFilter.checked)
-        // update checkbox state ans entry dark property in filter in store
+        const filteredCatalog = filters.applyListFilter('brand', items.itemList)
+        console.log(items.itemList, filteredCatalog)
         // apply all filters to catalog
-        // update current/total in filter in store
+        // update current/total and entry dark property in filter in store
         // update home page
     } else if (changedFilter.type === 'text') {
         message = `text, id ${changedFilter.id}, value = ${changedFilter.value}`

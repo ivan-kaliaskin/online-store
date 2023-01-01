@@ -59,6 +59,7 @@ function renderHomePageContent(bFromServer: boolean) {
 
                 filters.addListFilter('category', "Category", fGetFilterProperties('category'))
                 filters.addListFilter('brand', "Brand", fGetFilterProperties('brand'))
+                // instead of 600 here must be the max price in filtered catalog
                 filters.addLimitFilter('price', "Price", 0, 600)
 
                 elements.filtersContainer.prepend(LimitFilter('price'))
