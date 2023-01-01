@@ -1,4 +1,4 @@
-type FilterEntry = {
+type ListFilterEntry = {
     id: string,
     entryName: string,
     isEntrySelected: boolean,
@@ -6,4 +6,4 @@ type FilterEntry = {
     entryCurrentAmount: number
 }
 
-export default FilterEntry
+export default ListFilterEntry

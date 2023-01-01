@@ -1,15 +1,25 @@
-import Filter from "../interfaces_and_types/TypeFilter"
-import FilterEntry from "../interfaces_and_types/TypeFilterEntry"
+import ListFilter from "../interfaces_and_types/TypeListFilter"
+import LimitFilter from "../interfaces_and_types/TypeLimitFilter"
+import ListFilterEntry from "../interfaces_and_types/TypeListFilterEntry"
 
 const filters = {
-    _filters: [] as Array<Filter>,
-    addFilter(property: string, label: string, filterEntries: Array<FilterEntry>) {
-        const newFilter: Filter = { filterName: property, filterLabel: label, filterEntries }
-        this._filters.push(newFilter)
+    _listFilters: [] as Array<ListFilter>,
+    addListFilter(property: string, label: string, filterEntries: Array<ListFilterEntry>) {
+        const newListFilter: ListFilter = { filterName: property, filterLabel: label, filterEntries }
+        this._listFilters.push(newListFilter)
     },
-    get filters() {
-        return this._filters
-    }
+    get listFilters() {
+        return this._listFilters
+    },
+
+    _limitFilters: [] as Array<LimitFilter>,
+    addLimitFilter(property: string, label: string, min: number, max: number) {
+        const newLimitFilter: LimitFilter = { filterName: property, filterLabel: label, min, max }
+        this._limitFilters.push(newLimitFilter)
+    },
+    get limitFilters() {
+        return this._limitFilters
+    },
 }
 
 export default filters

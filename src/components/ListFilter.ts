@@ -1,10 +1,9 @@
-import Filter from "../interfaces_and_types/TypeFilter"
+import ListFilter from "../interfaces_and_types/TypeListFilter"
 import filters from "../store/filters"
 
-function Filter(filterProperty: string) {
-    const aAllFilters: Array<Filter> = filters.filters
-    console.log(aAllFilters, filterProperty)
-    const oFilter = aAllFilters.find((f: Filter) => f.filterName === filterProperty)
+function ListFilter(filterProperty: string) {
+    const aAllFilters: Array<ListFilter> = filters.listFilters
+    const oFilter = aAllFilters.find((f: ListFilter) => f.filterName === filterProperty)
 
     const filterWrapper = document.createElement('div')
     filterWrapper.classList.add('filter-wrapper')
@@ -46,4 +45,4 @@ function Filter(filterProperty: string) {
     return filterWrapper
 }
 
-export default Filter
+export default ListFilter

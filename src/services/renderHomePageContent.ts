@@ -5,8 +5,8 @@ import typeItem from "../interfaces_and_types/TypeItem"
 import SelectedItem from "../interfaces_and_types/TypeSelectedItem";
 import cart from "../store/cart";
 import filters from "../store/filters"
-import FilterEntry from "../interfaces_and_types/TypeFilterEntry";
-import Filter from "../components/Filter";
+import FilterEntry from "../interfaces_and_types/TypeListFilterEntry";
+import ListFilter from "../components/ListFilter";
 
 function renderHomePageContent(bFromServer: boolean) {
     // переход с других страниц
@@ -55,10 +55,11 @@ function renderHomePageContent(bFromServer: boolean) {
                     return aEntries
                 }
 
-                filters.addFilter('category', "Category", fGetFilterProperties('category'))
-                filters.addFilter('brand', "Brand", fGetFilterProperties('brand'))
+                filters.addListFilter('category', "Category", fGetFilterProperties('category'))
+                filters.addListFilter('brand', "Brand", fGetFilterProperties('brand'))
 
-                elements.filtersContainer.append(Filter('category'))
+                elements.filtersContainer.prepend(ListFilter('brand'))
+                elements.filtersContainer.prepend(ListFilter('category'))
 
                 const itemsElements: Node[] = products.map(el => {
                     return new Item(el)._element as HTMLDivElement
