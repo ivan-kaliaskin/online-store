@@ -13,6 +13,8 @@ const elements: {
     productsAmount: HTMLElement,
     _totalCost: HTMLElement,
     totalCost: HTMLElement,
+    _filtersContainer: HTMLElement,
+    filtersContainer: HTMLElement,
 } = {
     _itemsContainer: null!,
     set itemsContainer(oItemsContainer: HTMLElement) {
@@ -62,6 +64,13 @@ const elements: {
     },
     get totalCost(): HTMLElement {
         return this._totalCost
+    },
+    _filtersContainer: null!,
+    set filtersContainer(oFiltersContainer: HTMLElement) {
+        this._filtersContainer = oFiltersContainer
+    },
+    get filtersContainer(): HTMLElement {
+        return this._filtersContainer
     },
 }
 

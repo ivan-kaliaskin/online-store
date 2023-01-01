@@ -4,6 +4,10 @@ import itemsArray from "../store/itemsArray";
 import typeItem from "../interfaces_and_types/TypeItem"
 import SelectedItem from "../interfaces_and_types/TypeSelectedItem";
 import cart from "../store/cart";
+import filters from "../store/filters"
+import FilterEntry from "../interfaces_and_types/TypeListFilterEntry";
+import ListFilter from "../components/ListFilter";
+import LimitFilter from "../components/LimitFilter";
 
 function renderHomePageContent(bFromServer: boolean) {
     // переход с других страниц
@@ -30,6 +34,36 @@ function renderHomePageContent(bFromServer: boolean) {
             .then(result => {
                 const products: [typeItem] = result.products
                 itemsArray.itemList = products
+
+                const fGetFilterProperties = (sFilterProperty: string) => {
+                    const aProperties = products.map((item: typeItem) => item[sFilterProperty])
+                    let oProperties = {};
+
+                    for (let elem of aProperties) {
+                        if (oProperties[elem] === undefined) {
+                            oProperties[elem] = 1;
+                        } else {
+                            oProperties[elem]++;
+                        }
+                    }
+                    const aEntries: Array<FilterEntry> = Object.entries(oProperties).map((entry, index: number) => ({
+                        id: `${sFilterProperty}-${index}`,
+                        entryName: entry[0],
+                        isCheckboxChecked: false,
+                        isEntryDark: false,
+                        entryTotalAmount: Number(entry[1]),
+                        entryCurrentAmount: Number(entry[1])
+                    }))
+                    return aEntries
+                }
+
+                filters.addListFilter('category', "Category", fGetFilterProperties('category'))
+                filters.addListFilter('brand', "Brand", fGetFilterProperties('brand'))
+                filters.addLimitFilter('price', "Price", 0, 600)
+
+                elements.filtersContainer.prepend(LimitFilter('price'))
+                elements.filtersContainer.prepend(ListFilter('brand'))
+                elements.filtersContainer.prepend(ListFilter('category'))
 
                 const itemsElements: Node[] = products.map(el => {
                     return new Item(el)._element as HTMLDivElement

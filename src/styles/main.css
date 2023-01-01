@@ -139,6 +139,7 @@ body {
        column-gap: 15px;
   row-gap: 15px;
   width: 65%;
+
 }
 
 .home-page-filters-container {
@@ -186,13 +187,13 @@ body {
   margin-left: auto;
 }
 
-.filter-price-inner {
+.limit-filter-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 16px;
 }
-.filter-price-input {
+.limit-filter-input {
   width: 45%;
   color: #ffa500;
   font-size: 18px;
@@ -201,7 +202,7 @@ body {
   border-radius: 4px;
   background: none;
 }
-.filter-price-separator {
+.limit-filter-separator {
   width: 18px;
   height: 2px;
   background: #ffa500;
