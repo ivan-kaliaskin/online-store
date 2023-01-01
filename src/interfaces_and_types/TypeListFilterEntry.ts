@@ -1,7 +1,8 @@
 type ListFilterEntry = {
     id: string,
     entryName: string,
-    isEntrySelected: boolean,
+    isCheckboxChecked: boolean,
+    isEntryDark: boolean,
     entryTotalAmount: number,
     entryCurrentAmount: number
 }

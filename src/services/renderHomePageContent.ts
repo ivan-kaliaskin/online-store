@@ -49,7 +49,8 @@ function renderHomePageContent(bFromServer: boolean) {
                     const aEntries: Array<FilterEntry> = Object.entries(oProperties).map((entry, index: number) => ({
                         id: `${sFilterProperty}-${index}`,
                         entryName: entry[0],
-                        isEntrySelected: false,
+                        isCheckboxChecked: false,
+                        isEntryDark: false,
                         entryTotalAmount: Number(entry[1]),
                         entryCurrentAmount: Number(entry[1])
                     }))

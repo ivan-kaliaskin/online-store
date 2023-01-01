@@ -11,6 +11,15 @@ const filters = {
     get listFilters() {
         return this._listFilters
     },
+    getListFilter(filterName: string) {
+        return this._listFilters.find((filter: ListFilter) => filter.filterName === filterName) as ListFilter
+    },
+    updateCheckboxStateInListFilter(filterName: string, entryNumber: number, isCheckboxChecked: boolean) {
+        const changedFilter: ListFilter = this.getListFilter(filterName)
+        let changedEntry = changedFilter.filterEntries[entryNumber]
+        console.log(changedEntry, isCheckboxChecked)
+        changedFilter.filterEntries[entryNumber] = { ...changedEntry, isCheckboxChecked }
+    },
 
     _limitFilters: [] as Array<LimitFilter>,
     addLimitFilter(property: string, label: string, min: number, max: number) {
