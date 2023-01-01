@@ -6,6 +6,9 @@ function ItemCard(oItem: typeItem) { // oItem сейчас строка, а на
     item.style.backgroundImage = `url("${oItem.images?.reverse()[0]}")`
     item.setAttribute('id', `item-${oItem.id}`)
 
+    const itemBody: HTMLDivElement = document.createElement('div')
+    itemBody.classList.add('item-body')
+
     const itemTitle = document.createElement('h2')
     itemTitle.classList.add('item-title')
     itemTitle.innerText = oItem.title
@@ -36,8 +39,8 @@ function ItemCard(oItem: typeItem) { // oItem сейчас строка, а на
 
 
     itemFooter.append(itemFooterAddToCartBtn, itemFooterDetailsBtn)
-
-    item.append(itemTitle, itemInfo, itemFooter)
+    itemBody.append(itemTitle, itemInfo)
+    item.append(itemBody, itemFooter)
 
     return item
 }
