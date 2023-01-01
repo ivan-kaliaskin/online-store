@@ -7,6 +7,7 @@ import cart from "../store/cart";
 import filters from "../store/filters"
 import FilterEntry from "../interfaces_and_types/TypeListFilterEntry";
 import ListFilter from "../components/ListFilter";
+import LimitFilter from "../components/LimitFilter";
 
 function renderHomePageContent(bFromServer: boolean) {
     // переход с других страниц
@@ -57,7 +58,9 @@ function renderHomePageContent(bFromServer: boolean) {
 
                 filters.addListFilter('category', "Category", fGetFilterProperties('category'))
                 filters.addListFilter('brand', "Brand", fGetFilterProperties('brand'))
+                filters.addLimitFilter('price', "Price", 0, 600)
 
+                elements.filtersContainer.prepend(LimitFilter('price'))
                 elements.filtersContainer.prepend(ListFilter('brand'))
                 elements.filtersContainer.prepend(ListFilter('category'))
 
