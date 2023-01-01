@@ -1,9 +1,10 @@
-import attributeRender from "./AttributeRender"
 import elements from "../constants/elements"
+import onFilterChange from "../services/onFilterChange"
 
 function FiltersContainer(): HTMLElement {
   const filter: HTMLDivElement = document.createElement('div')
   filter.classList.add('filters')
+  filter.addEventListener('change', onFilterChange)
 
   // buttons in filter sidebar
   const btns: HTMLDivElement = document.createElement('div')

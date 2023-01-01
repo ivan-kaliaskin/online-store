@@ -138,14 +138,6 @@ body {
   background-color: rgb(88, 113, 190);
 }
 
-.item {
-  width: 200px;
-  height: 200px;
-  margin: 10px 10px;
-  box-sizing: border-box;
-  background-color: tomato;
-}
-
 .home-page-filters-container {
   display: flex;
   width: 20%;
@@ -191,13 +183,13 @@ body {
   margin-left: auto;
 }
 
-.filter-price-inner {
+.limit-filter-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 16px;
 }
-.filter-price-input {
+.limit-filter-input {
   width: 45%;
   color: #ffa500;
   font-size: 18px;
@@ -206,7 +198,7 @@ body {
   border-radius: 4px;
   background: none;
 }
-.filter-price-separator {
+.limit-filter-separator {
   width: 18px;
   height: 2px;
   background: #ffa500;
@@ -240,18 +232,6 @@ body {
 .filter-btn:focus {
   background-color: #ffa500;
   color: #fff;
-}
-
-.item-title {
-  margin: 0;
-  box-sizing: border-box;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.item-info-line {
-  font-size: 12px;
-  color: lime;
 }
 
 .item {

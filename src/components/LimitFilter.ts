@@ -7,29 +7,34 @@ function LimitFilter(filterProperty: string) {
     const oFilter = aAllLimitFilters.find((f: LimitFilter) => f.filterName === filterProperty)
 
     const price: HTMLDivElement = document.createElement('div')
-    price.classList.add('filters-price')
+    price.classList.add('limit-filter')
 
     const priceTitle: HTMLHeadingElement = document.createElement('h3')
     priceTitle.classList.add('filter-title')
-    priceTitle.innerHTML = 'Price'
+    priceTitle.innerText = oFilter ? oFilter.filterLabel : 'Error'
 
     const priceInner: HTMLDivElement = document.createElement('div')
-    priceInner.classList.add('filter-price-inner')
+    priceInner.classList.add('limit-filter-inner')
 
-    const priceSliderInput: HTMLInputElement = document.createElement('input')
-    priceSliderInput.classList.add('filter-price-input')
-    priceSliderInput.value = `${oFilter?.min}` || '0'
-    attributeRender(priceSliderInput, { 'id': 'min-price', 'inputmode': 'decimal', 'name': 'min-price', 'placeholder': 'min' })
+    if (oFilter) {
+        const priceSliderInput: HTMLInputElement = document.createElement('input')
+        priceSliderInput.classList.add('limit-filter-input')
+        priceSliderInput.value = `${oFilter?.min}` || '0'
+        attributeRender(priceSliderInput, { 'id': `min-${filterProperty}`, 'type': 'text', 'inputmode': 'decimal', 'name': `min-${filterProperty}`, 'placeholder': 'min' })
 
-    const priceSliderInput2: HTMLInputElement = document.createElement('input')
-    priceSliderInput2.classList.add('filter-price-input')
-    priceSliderInput2.value = `${oFilter?.max}` || '10000'
-    attributeRender(priceSliderInput2, { 'id': 'max-price', 'inputmode': 'decimal', 'name': 'max-price', 'placeholder': 'max' })
+        const priceSliderInput2: HTMLInputElement = document.createElement('input')
+        priceSliderInput2.classList.add('limit-filter-input')
+        priceSliderInput2.value = `${oFilter?.max}` || '10000'
+        attributeRender(priceSliderInput2, { 'id': `max-${filterProperty}`, 'type': 'text', 'inputmode': 'decimal', 'name': `max-${filterProperty}`, 'placeholder': 'max' })
 
-    const separator: HTMLDivElement = document.createElement('div')
-    separator.classList.add('filter-price-separator')
+        const separator: HTMLDivElement = document.createElement('div')
+        separator.classList.add('limit-filter-separator')
 
-    priceInner.append(priceSliderInput, separator, priceSliderInput2)
+        priceInner.append(priceSliderInput, separator, priceSliderInput2)
+
+    } else {
+        priceInner.innerHTML = `no filter ${filterProperty} found`
+    }
     price.append(priceTitle, priceInner)
 
     return price
