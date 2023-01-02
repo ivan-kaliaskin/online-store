@@ -6,11 +6,15 @@
     padding-top: 20px;
 }
 
+.home-page-products-container {
+  width: 65%;
+}
+
 .home-page-items-container {
     display: flex;
     flex-wrap: wrap;
     align-self: flex-start;
     column-gap: 15px;
     row-gap: 15px;
-    width: 65%;
+    //width: 65%;
 }
