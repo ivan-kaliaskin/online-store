@@ -24,8 +24,10 @@ const filters = {
     applyListFilter(filterName: string, catalog: Item[]) {
         const chosenFilter: ListFilter | undefined = this._listFilters.find((fl: ListFilter) => fl.filterName === filterName)
         const copyOfCatalog: Item[] = catalog.map((item: Item) => ({ ...item }))
+        // здесь нужна проверка, что хотя бы один чекбокс чекед
         if (chosenFilter) {
             const activeEntries = chosenFilter.filterEntries.filter((entry: ListFilterEntry) => entry.isCheckboxChecked)
+            if (!activeEntries.length) return copyOfCatalog
             const activeEntriesName = activeEntries.map((entry: ListFilterEntry) => entry.entryName)
             return copyOfCatalog.filter((item: Item) => {
                 return !!activeEntriesName.find((activeName: string) => activeName === item[filterName])
@@ -43,6 +45,34 @@ const filters = {
     get limitFilters() {
         return this._limitFilters
     },
+    getLimitFilter(filterName: string) {
+        return this._limitFilters.find((filter: LimitFilter) => filter.filterName === filterName) as LimitFilter
+    },
+    updateMinMaxInLimitFilter(filterName: string, minOrMax: string, value: number) {
+        const changedFilter: LimitFilter = this.getLimitFilter(filterName)
+
+        if (minOrMax === 'min') {
+            changedFilter.min = value
+        } else if (minOrMax === 'max') {
+            changedFilter.max = value
+        }
+    },
+    applyLimitFilter(filterName: string, catalog: Item[]) {
+        const chosenFilter: LimitFilter | undefined = this._limitFilters.find((fl: LimitFilter) => fl.filterName === filterName)
+        const copyOfCatalog: Item[] = catalog.map((item: Item) => ({ ...item }))
+        // здесь 
+        if (chosenFilter) {
+            // c
+            return copyOfCatalog.filter((item: Item) => {
+                if (!item.price) return true
+                return (item.price >= chosenFilter.min && item.price <= chosenFilter.max)
+            })
+        } else {
+            return copyOfCatalog
+        }
+    },
+
+
 }
 
 export default filters
