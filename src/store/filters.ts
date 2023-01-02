@@ -71,6 +71,12 @@ const filters = {
             return copyOfCatalog
         }
     },
+    applyAllFilters(catalog: Item[]) {
+        const catalogAfterCategoryFilter = filters.applyListFilter('category', catalog)
+        const catalogAfterBrandFilter = filters.applyListFilter('brand', catalogAfterCategoryFilter)
+        const catalogAfterPriceFilter = filters.applyLimitFilter('price', catalogAfterBrandFilter)
+        return catalogAfterPriceFilter
+    },
 
 
 }

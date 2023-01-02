@@ -8,12 +8,15 @@ import filters from "../store/filters"
 import FilterEntry from "../interfaces_and_types/TypeListFilterEntry";
 import ListFilter from "../components/ListFilter";
 import LimitFilter from "../components/LimitFilter";
+import items from "../store/itemsArray";
 
 function renderHomePageContent(bFromServer: boolean) {
     // переход с других страниц
     if (!bFromServer) {
         const aIdOfSelectedItems = cart.selectedItems.map((item: SelectedItem) => item.item.id)
-        const itemsElements: Node[] = itemsArray.itemList.map(el => {
+        const filteredCatalog = filters.applyAllFilters(items.itemList)
+
+        const itemsElements: Node[] = filteredCatalog.map(el => {
             let newItem: HTMLDivElement = new Item(el)._element
             const btn = newItem.querySelector('.btn-to-cart') as HTMLElement
             // проверяем, этот товар в корзине или нет

@@ -1,16 +1,16 @@
 import filters from "../store/filters"
 import items from "../store/itemsArray"
+import renderHomePageContent from "./renderHomePageContent"
 
 function onFilterChange(event): void {
     const changedFilter = event.target as HTMLInputElement
+    const filterName = changedFilter.id.split('-')[0]
 
     if (changedFilter.type === 'checkbox') {
         filters.updateCheckboxStateInListFilter(
-            changedFilter.id.split('-')[0],
+            filterName,
             +changedFilter.id.split('-')[1],
             changedFilter.checked)
-        const filteredCatalog = filters.applyListFilter('brand', items.itemList)
-        console.log(items.itemList, filteredCatalog)
     } else if (changedFilter.type === 'text') {
         filters.updateMinMaxInLimitFilter(
             changedFilter.id.split('-')[1],
@@ -18,12 +18,10 @@ function onFilterChange(event): void {
             +changedFilter.value)
     }
     // apply all filters to catalog
-    const catalogAfterCategoryFilter = filters.applyListFilter('category', items.itemList)
-    const catalogAfterBrandFilter = filters.applyListFilter('brand', catalogAfterCategoryFilter)
-    const catalogAfterPriceFilter = filters.applyLimitFilter('price', catalogAfterBrandFilter)
-    console.log(catalogAfterPriceFilter)
+    const filteredCatalog = filters.applyAllFilters(items.itemList)
+    renderHomePageContent(false)
+
     // update current/total and entry dark property in filter in store
-    // update home page
 
 }
 export default onFilterChange
