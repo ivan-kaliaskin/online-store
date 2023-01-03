@@ -13,15 +13,19 @@ function onFilterChange(event): void {
             changedFilter.checked)
     } else if (changedFilter.type === 'text') {
         filters.updateMinMaxInLimitFilter(
+            filterName,
             changedFilter.id.split('-')[1],
-            changedFilter.id.split('-')[0],
             +changedFilter.value)
     }
     // apply all filters to catalog
     const filteredCatalog = filters.applyAllFilters(items.itemList)
     renderHomePageContent(false)
 
-    // update current/total and entry dark property in filter in store
+    filters.updateCurrentAmountInListFilter('category', filteredCatalog)
+    filters.updateCurrentAmountInListFilter('brand', filteredCatalog)
+    filters.updateCurrentValuesInLimitFilter('price', filteredCatalog)
+
+    // render updated filters
 
 }
 export default onFilterChange

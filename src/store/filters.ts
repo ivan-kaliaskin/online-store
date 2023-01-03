@@ -18,8 +18,18 @@ const filters = {
     updateCheckboxStateInListFilter(filterName: string, entryNumber: number, isCheckboxChecked: boolean) {
         const changedFilter: ListFilter = this.getListFilter(filterName)
         let changedEntry = changedFilter.filterEntries[entryNumber]
-        console.log(changedEntry, isCheckboxChecked)
+
         changedFilter.filterEntries[entryNumber] = { ...changedEntry, isCheckboxChecked }
+    },
+    updateCurrentAmountInListFilter(filterName: string, filteredCatalog: Item[]) {
+        const changedFilter: ListFilter = this.getListFilter(filterName)
+        changedFilter.filterEntries = [...changedFilter.filterEntries].map((entry: ListFilterEntry) => {
+            return {
+                ...entry, entryCurrentAmount: filteredCatalog.filter((item: Item) => {
+                    return item[filterName] === entry.entryName
+                }).length
+            }
+        })
     },
     applyListFilter(filterName: string, catalog: Item[]) {
         const chosenFilter: ListFilter | undefined = this._listFilters.find((fl: ListFilter) => fl.filterName === filterName)
@@ -71,6 +81,17 @@ const filters = {
             return copyOfCatalog
         }
     },
+    updateCurrentValuesInLimitFilter(filterName: string, filteredCatalog: Item[]) {
+        let changedFilter: LimitFilter = this.getLimitFilter(filterName)
+        const allPricesFromFilteredCatalog = filteredCatalog.map((item: Item) => item.price || 0)
+
+        changedFilter = {
+            ...changedFilter,
+            max: Math.max(...allPricesFromFilteredCatalog),
+            min: Math.min(...allPricesFromFilteredCatalog)
+        }
+    },
+
     applyAllFilters(catalog: Item[]) {
         const catalogAfterCategoryFilter = filters.applyListFilter('category', catalog)
         const catalogAfterBrandFilter = filters.applyListFilter('brand', catalogAfterCategoryFilter)

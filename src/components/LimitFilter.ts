@@ -20,12 +20,12 @@ function LimitFilter(filterProperty: string) {
         const priceSliderInput: HTMLInputElement = document.createElement('input')
         priceSliderInput.classList.add('limit-filter-input')
         priceSliderInput.value = `${oFilter?.min}` || '0'
-        attributeRender(priceSliderInput, { 'id': `min-${filterProperty}`, 'type': 'text', 'inputmode': 'decimal', 'name': `min-${filterProperty}`, 'placeholder': 'min' })
+        attributeRender(priceSliderInput, { 'id': `${filterProperty}-min`, 'type': 'text', 'inputmode': 'decimal', 'name': `min-${filterProperty}`, 'placeholder': 'min' })
 
         const priceSliderInput2: HTMLInputElement = document.createElement('input')
         priceSliderInput2.classList.add('limit-filter-input')
         priceSliderInput2.value = `${oFilter?.max}` || '10000'
-        attributeRender(priceSliderInput2, { 'id': `max-${filterProperty}`, 'type': 'text', 'inputmode': 'decimal', 'name': `max-${filterProperty}`, 'placeholder': 'max' })
+        attributeRender(priceSliderInput2, { 'id': `${filterProperty}-max`, 'type': 'text', 'inputmode': 'decimal', 'name': `max-${filterProperty}`, 'placeholder': 'max' })
 
         const separator: HTMLDivElement = document.createElement('div')
         separator.classList.add('limit-filter-separator')

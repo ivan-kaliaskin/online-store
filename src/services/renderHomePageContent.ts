@@ -9,6 +9,7 @@ import FilterEntry from "../interfaces_and_types/TypeListFilterEntry";
 import ListFilter from "../components/ListFilter";
 import LimitFilter from "../components/LimitFilter";
 import items from "../store/itemsArray";
+import renderFilters from "./renderFilters";
 
 function renderHomePageContent(bFromServer: boolean) {
     // переход с других страниц
@@ -16,6 +17,10 @@ function renderHomePageContent(bFromServer: boolean) {
         const aIdOfSelectedItems = cart.selectedItems.map((item: SelectedItem) => item.item.id)
         const filteredCatalog = filters.applyAllFilters(items.itemList)
 
+        // render DOM-elements 'filters' in filtersContainer
+        renderFilters()
+
+        // render product cards in itemsContainer
         const itemsElements: Node[] = filteredCatalog.map(el => {
             let newItem: HTMLDivElement = new Item(el)._element
             const btn = newItem.querySelector('.btn-to-cart') as HTMLElement
@@ -28,8 +33,10 @@ function renderHomePageContent(bFromServer: boolean) {
             }
             return newItem
         })
+
         elements.itemsContainer.innerHTML = ''
         elements.itemsContainer.append(...itemsElements)
+
         // загрузка с сервера
     } else {
         fetch('https://dummyjson.com/products')
@@ -37,7 +44,7 @@ function renderHomePageContent(bFromServer: boolean) {
             .then(result => {
                 const products: [typeItem] = result.products
                 itemsArray.itemList = products
-
+                // find properties for list filters
                 const fGetFilterProperties = (sFilterProperty: string) => {
                     const aProperties = products.map((item: typeItem) => item[sFilterProperty])
                     let oProperties = {};
@@ -60,15 +67,23 @@ function renderHomePageContent(bFromServer: boolean) {
                     return aEntries
                 }
 
+                // create list filters in store
                 filters.addListFilter('category', "Category", fGetFilterProperties('category'))
                 filters.addListFilter('brand', "Brand", fGetFilterProperties('brand'))
-                // instead of 600 here must be the max price in filtered catalog
-                filters.addLimitFilter('price', "Price", 0, 600)
 
-                elements.filtersContainer.prepend(LimitFilter('price'))
-                elements.filtersContainer.prepend(ListFilter('brand'))
-                elements.filtersContainer.prepend(ListFilter('category'))
+                // create limit filters in store
+                const priceArrayOfLoadedProducts = products.map((product: typeItem) => product.price || 0)
+                filters.addLimitFilter(
+                    'price',
+                    "Price",
+                    Math.min(...priceArrayOfLoadedProducts),
+                    Math.max(...priceArrayOfLoadedProducts)
+                )
 
+                // render DOM-elements 'filters' in filtersContainer
+                renderFilters()
+
+                // render product cards in itemsContainer
                 const itemsElements: Node[] = products.map(el => {
                     return new Item(el)._element as HTMLDivElement
                 })

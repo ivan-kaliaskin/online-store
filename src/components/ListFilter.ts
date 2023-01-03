@@ -24,6 +24,7 @@ function ListFilter(filterProperty: string) {
             listItemCheckbox.classList.add('filter-item-checkbox')
             listItemCheckbox.setAttribute('id', item.id)
             listItemCheckbox.setAttribute('type', 'checkbox')
+            listItemCheckbox.checked = item.isCheckboxChecked
 
             const listItemLabel: HTMLLabelElement = document.createElement('label')
             listItemLabel.setAttribute('for', item.id)
