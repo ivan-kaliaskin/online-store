@@ -139,7 +139,6 @@ body {
        column-gap: 15px;
   row-gap: 15px;
   width: 65%;
-
 }
 
 .home-page-filters-container {
@@ -492,6 +491,30 @@ body {
   color: #d2b06f;
   text-align: center;
   margin-top: 8px;
+}
+
+#background-div {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+#modal-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+  height: 40%;
+  background-color: rgb(202, 140, 86);
+}
+
+.personal-details-input {
+  width: 80%;
 }
 
 .breadcrumbs {

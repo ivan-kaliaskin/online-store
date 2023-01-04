@@ -66,6 +66,10 @@ function DetailsPage(item: Item) {
         const buyNowBtn: HTMLButtonElement = document.createElement('button')
         buyNowBtn.classList.add('details-buttons')
         buyNowBtn.innerText = 'Buy now'
+        buyNowBtn.addEventListener('click', () => {
+            const popUp = document.getElementById('background-div')
+            popUp!.style.display = 'flex'
+        })
 
         btnsWrapper.append(toggleCartBtn, buyNowBtn)
         productOrder.append(price, btnsWrapper)
