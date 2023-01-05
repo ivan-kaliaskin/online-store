@@ -61,6 +61,10 @@ function CartPage() {
     buyNowButton.setAttribute('id', 'buy-now-button')
     buyNowButton.classList.add('buy-now-button')
     buyNowButton.innerText = 'BUY NOW'
+    buyNowButton.addEventListener('click', () => {
+        const popUp = document.getElementById('background-div')
+        popUp!.style.display = 'flex'
+    })
 
     summary.append(summaryTitle, productsAmount, totalCost, promocodeInput, buyNowButton)
 

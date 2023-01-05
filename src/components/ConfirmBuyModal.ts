@@ -1,8 +1,16 @@
+import initialState from "../constants/initialState"
 import onModalInputClick from "../services/onModalINputClick"
+import state from "../store/state"
 
-function createConfirmBuyModal() {
+function ConfirmBuyModal() {
+    state.inputStatus = initialState
     const backgroundDiv = document.createElement('div')
     backgroundDiv.setAttribute('id', 'background-div')
+    backgroundDiv.addEventListener('click', (event) => {
+        if ((event.target === backgroundDiv)) {
+            backgroundDiv.style.display = 'none'
+        }
+    })
 
     const modalWindow = document.createElement('div')
     modalWindow.setAttribute('id', 'modal-window')
@@ -10,6 +18,11 @@ function createConfirmBuyModal() {
         const el = event.target! as HTMLInputElement
         console.log(el)
         onModalInputClick(el)
+        if (state.checkInputState()) {
+            confirmBtn.disabled = false
+        } else {
+            confirmBtn.disabled = true
+        }
     })
 
     const personalDetails = document.createElement('div')
@@ -98,6 +111,7 @@ function createConfirmBuyModal() {
     const confirmBtn = document.createElement('button')
     confirmBtn.setAttribute('id', 'confirm-btn')
     confirmBtn.innerText = 'Confirm'
+    confirmBtn.setAttribute('disabled', 'true')
 
     modalWindow.append(personalDetails, creditCardDetails, confirmBtn)
 
@@ -105,4 +119,4 @@ function createConfirmBuyModal() {
     return backgroundDiv
 }
 
-export default createConfirmBuyModal
+export default ConfirmBuyModal

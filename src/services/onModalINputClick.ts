@@ -8,9 +8,11 @@ function onModalInputClick(el: HTMLInputElement) {
             if (el.value.match(validRegex)) {
                 el.classList.add('valid')
                 el.classList.remove('invalid')
+                state.inputStatus = { ...state._inputStatus, nameInput: true }
             } else {
                 el.classList.add('invalid')
                 el.classList.remove('valid')
+                state.inputStatus = { ...state._inputStatus, nameInput: false }
             }
             break;
         case 'input-phone':
@@ -18,9 +20,11 @@ function onModalInputClick(el: HTMLInputElement) {
             if (el.value.match(validRegex)) {
                 el.classList.add('valid')
                 el.classList.remove('invalid')
+                state.inputStatus = { ...state._inputStatus, phoneNumberInput: true }
             } else {
                 el.classList.add('invalid')
                 el.classList.remove('valid')
+                state.inputStatus = { ...state._inputStatus, phoneNumberInput: false }
             }
             break;
         case 'input-adress':
@@ -28,9 +32,11 @@ function onModalInputClick(el: HTMLInputElement) {
             if (el.value.match(validRegex)) {
                 el.classList.add('valid')
                 el.classList.remove('invalid')
+                state.inputStatus = { ...state._inputStatus, adressInput: true }
             } else {
                 el.classList.add('invalid')
                 el.classList.remove('valid')
+                state.inputStatus = { ...state._inputStatus, adressInput: false }
             }
             break;
         case 'input-email':
@@ -38,9 +44,11 @@ function onModalInputClick(el: HTMLInputElement) {
             if (el.value.match(validRegex)) {
                 el.classList.add('valid')
                 el.classList.remove('invalid')
+                state.inputStatus = { ...state._inputStatus, emailInput: true }
             } else {
                 el.classList.add('invalid')
                 el.classList.remove('valid')
+                state.inputStatus = { ...state._inputStatus, emailInput: false }
             }
             break;
         case 'input-card':
@@ -49,9 +57,11 @@ function onModalInputClick(el: HTMLInputElement) {
             if (el.value.match(validRegex)) {
                 el.classList.add('valid')
                 el.classList.remove('invalid')
+                state.inputStatus = { ...state._inputStatus, numberInput: true }
             } else {
                 el.classList.add('invalid')
                 el.classList.remove('valid')
+                state.inputStatus = { ...state._inputStatus, numberInput: false }
             }
             break;
         case 'input-date':
@@ -60,9 +70,11 @@ function onModalInputClick(el: HTMLInputElement) {
             if (el.value.match(validRegex)) {
                 el.classList.add('valid')
                 el.classList.remove('invalid')
+                state.inputStatus = { ...state._inputStatus, dateInput: true }
             } else {
                 el.classList.add('invalid')
                 el.classList.remove('valid')
+                state.inputStatus = { ...state._inputStatus, dateInput: false }
             }
             if (el.value.length === 2 && state.prevValueDateInput.length === 1) {
                 el.value += '/'
@@ -77,9 +89,11 @@ function onModalInputClick(el: HTMLInputElement) {
             if (el.value.match(validRegex)) {
                 el.classList.add('valid')
                 el.classList.remove('invalid')
+                state.inputStatus = { ...state._inputStatus, cvvInput: true }
             } else {
                 el.classList.add('invalid')
                 el.classList.remove('valid')
+                state.inputStatus = { ...state._inputStatus, cvvInput: false }
             }
             break;
 
