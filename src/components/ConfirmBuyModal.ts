@@ -1,9 +1,16 @@
+import onModalInputClick from "../services/onModalINputClick"
+
 function createConfirmBuyModal() {
     const backgroundDiv = document.createElement('div')
     backgroundDiv.setAttribute('id', 'background-div')
 
     const modalWindow = document.createElement('div')
     modalWindow.setAttribute('id', 'modal-window')
+    modalWindow.addEventListener('input', (event) => {
+        const el = event.target! as HTMLInputElement
+        console.log(el)
+        onModalInputClick(el)
+    })
 
     const personalDetails = document.createElement('div')
     personalDetails.setAttribute('id', 'personal-details-block')
@@ -13,20 +20,28 @@ function createConfirmBuyModal() {
     personalDetailsTitle.innerText = 'Personal details'
 
     const nameInput = document.createElement('input')
-    nameInput.classList.add('personal-details-input')
+    nameInput.classList.add('details-input')
     nameInput.setAttribute('placeholder', 'Name')
+    nameInput.setAttribute('type', 'text')
+    nameInput.setAttribute('id', 'input-name')
 
     const phoneNumberInput = document.createElement('input')
-    phoneNumberInput.classList.add('personal-details-input')
+    phoneNumberInput.classList.add('details-input')
     phoneNumberInput.setAttribute('placeholder', 'Phone number')
+    phoneNumberInput.setAttribute('type', 'text')
+    phoneNumberInput.setAttribute('id', 'input-phone')
 
     const adressInput = document.createElement('input')
-    adressInput.classList.add('personal-details-input')
+    adressInput.classList.add('details-input')
     adressInput.setAttribute('placeholder', 'Delivery adress')
+    adressInput.setAttribute('type', 'text')
+    adressInput.setAttribute('id', 'input-adress')
 
     const emailInput = document.createElement('input')
-    emailInput.classList.add('personal-details-input')
+    emailInput.classList.add('details-input')
     emailInput.setAttribute('placeholder', 'E-mail')
+    emailInput.setAttribute('type', 'text')
+    emailInput.setAttribute('id', 'input-email')
 
     personalDetails.append(personalDetailsTitle, nameInput, phoneNumberInput, adressInput, emailInput)
 
@@ -43,7 +58,10 @@ function createConfirmBuyModal() {
     const numberBlock = document.createElement('div')
 
     const numberInput = document.createElement('input')
+    numberInput.classList.add('details-input')
     numberInput.setAttribute('placeholder', 'Card number')
+    numberInput.setAttribute('type', 'text')
+    numberInput.setAttribute('id', 'input-card')
 
     numberBlock.append(numberInput)
 
@@ -53,7 +71,10 @@ function createConfirmBuyModal() {
     dateBlock.innerText = 'Valid: '
 
     const dateInput = document.createElement('input')
+    dateInput.classList.add('details-input')
     dateInput.setAttribute('placeholder', 'Valid thru')
+    dateInput.setAttribute('type', 'text')
+    dateInput.setAttribute('id', 'input-date')
 
     dateBlock.append(dateInput)
 
@@ -61,7 +82,10 @@ function createConfirmBuyModal() {
     cvvBlock.innerText = 'CVV: '
 
     const cvvInput = document.createElement('input')
+    cvvInput.classList.add('details-input')
     cvvInput.setAttribute('placeholder', 'CVV')
+    cvvInput.setAttribute('type', 'text')
+    cvvInput.setAttribute('id', 'input-cvv')
 
     cvvBlock.append(cvvInput)
 

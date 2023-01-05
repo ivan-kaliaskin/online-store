@@ -18,12 +18,16 @@
     background-color: rgb(202, 140, 86);
 }
 
-#details-block {
-    // display: flex;
-    // flex-direction: column;
-    // width: min-content;
+.details-input {
+    width: 80%;
+    outline: none;
+    box-sizing: border-box;
 }
 
-.personal-details-input {
-    width: 80%;
+.invalid {
+    border: 2px solid red;
+}
+
+.valid {
+    border: 2px solid green;
 }

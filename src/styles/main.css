@@ -513,8 +513,18 @@ body {
   background-color: rgb(202, 140, 86);
 }
 
-.personal-details-input {
+.details-input {
   width: 80%;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.invalid {
+  border: 2px solid red;
+}
+
+.valid {
+  border: 2px solid green;
 }
 
 .breadcrumbs {
