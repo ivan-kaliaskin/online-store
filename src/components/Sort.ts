@@ -1,6 +1,7 @@
 import attributeRender from "./AttributeRender"
+import viewBtns from "../services/viewBtns"
 
-function createSort() {
+function createSort(): HTMLElement {
 
   let found: number = 0;
   
@@ -44,7 +45,7 @@ function createSort() {
   const viewBar: HTMLDivElement = document.createElement('div')
   viewBar.classList.add('view-bar')
   const viewBarBtnBig: HTMLDivElement = document.createElement('div')
-  viewBarBtnBig.classList.add('view-bar-button', 'view-bar-button--big')
+  viewBarBtnBig.classList.add('view-bar-button', 'view-bar-button--big', 'view-bar-button--active')
   const viewBarBtnSmall: HTMLDivElement = document.createElement('div')
   viewBarBtnSmall.classList.add('view-bar-button', 'view-bar-button--small')
 
@@ -59,6 +60,8 @@ function createSort() {
   }
 
   viewBar.append(viewBarBtnBig, viewBarBtnSmall)
+
+  viewBar.addEventListener('click', viewBtns)
 
   sortContainer.append(sortBar, statBar, searchBar, viewBar)
 

@@ -138,10 +138,17 @@ body {
 .home-page-items-container {
   display: flex;
   flex-wrap: wrap;
-  align-self: flex-start;
   -moz-column-gap: 15px;
        column-gap: 15px;
   row-gap: 15px;
+}
+.home-page-items-container.grid-standart .item {
+  width: 250px;
+  height: 250px;
+}
+.home-page-items-container.grid-small .item {
+  width: 180px;
+  height: 180px;
 }
 
 .home-page-filters-container {
@@ -346,8 +353,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 200px;
-  height: 200px;
   background-color: #cacaca;
   background-size: cover;
   background-position: center center;
