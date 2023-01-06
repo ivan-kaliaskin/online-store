@@ -1,9 +1,11 @@
-const state = {
+import IState from "../interfaces_and_types/IState"
+
+const state: IState = {
     _prevValueDateInput: '',
     get prevValueDateInput() {
         return this._prevValueDateInput
     },
-    set prevValueDateInput(value) {
+    set prevValueDateInput(value: string) {
         this._prevValueDateInput = value
     },
     _inputStatus: {

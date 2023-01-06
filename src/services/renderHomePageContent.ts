@@ -46,14 +46,14 @@ function renderHomePageContent(bFromServer: boolean) {
                 itemsArray.itemList = products
                 // find properties for list filters
                 const fGetFilterProperties = (sFilterProperty: string) => {
-                    const aProperties = products.map((item: typeItem) => item[sFilterProperty])
-                    let oProperties = {};
+                    const aProperties = products.map((item: typeItem) => item[sFilterProperty as keyof typeItem]) as [string]
+                    let oProperties: { string: number } = {} as { string: number };
 
                     for (let elem of aProperties) {
-                        if (oProperties[elem] === undefined) {
-                            oProperties[elem] = 1;
+                        if (oProperties[elem as keyof { string: number }] === undefined) {
+                            oProperties[elem as keyof { string: number }] = 1;
                         } else {
-                            oProperties[elem]++;
+                            oProperties[elem as keyof { string: number }]++;
                         }
                     }
                     const aEntries: Array<FilterEntry> = Object.entries(oProperties).map((entry, index: number) => ({

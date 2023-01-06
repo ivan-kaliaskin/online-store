@@ -2,7 +2,7 @@ import filters from "../store/filters"
 import items from "../store/itemsArray"
 import renderHomePageContent from "./renderHomePageContent"
 
-function onFilterChange(event): void {
+function onFilterChange(event: Event): void {
     const changedFilter = event.target as HTMLInputElement
     const filterName = changedFilter.id.split('-')[0]
 

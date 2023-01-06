@@ -15,7 +15,7 @@ function ProductProperties(item: Item) {
         elementPropertyTitle.classList.add('el-property-title')
 
         const elementPropertyInfo = document.createElement('p')
-        elementPropertyInfo.innerText = item[property]
+        elementPropertyInfo.innerText = item[property as keyof Item] as string
         elementPropertyInfo.classList.add('el-property-info')
 
         elementPropertyContainer.append(elementPropertyTitle, elementPropertyInfo)

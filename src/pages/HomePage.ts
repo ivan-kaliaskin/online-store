@@ -4,7 +4,7 @@ import elements from "../constants/elements"
 import onItemsContainerClick from "../services/onItemsContainerClick"
 import FiltersContainer from "../components/FiltersContainer"
 
-function HomePage(bFromServer) {
+function HomePage(bFromServer: boolean) {
     const homePageContainer: HTMLDivElement = document.createElement('div')
     homePageContainer.setAttribute('id', 'home-page-container')
 

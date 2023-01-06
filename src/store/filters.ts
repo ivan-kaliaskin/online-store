@@ -26,7 +26,7 @@ const filters = {
         changedFilter.filterEntries = [...changedFilter.filterEntries].map((entry: ListFilterEntry) => {
             return {
                 ...entry, entryCurrentAmount: filteredCatalog.filter((item: Item) => {
-                    return item[filterName] === entry.entryName
+                    return item[filterName as keyof Item] === entry.entryName
                 }).length
             }
         })
@@ -40,7 +40,7 @@ const filters = {
             if (!activeEntries.length) return copyOfCatalog
             const activeEntriesName = activeEntries.map((entry: ListFilterEntry) => entry.entryName)
             return copyOfCatalog.filter((item: Item) => {
-                return !!activeEntriesName.find((activeName: string) => activeName === item[filterName])
+                return !!activeEntriesName.find((activeName: string) => activeName === item[filterName as keyof Item])
             })
         } else {
             return copyOfCatalog
