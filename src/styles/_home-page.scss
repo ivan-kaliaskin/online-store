@@ -1,0 +1,35 @@
+#home-page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.home-page-products-container {
+width: 65%;
+}
+
+.home-page-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 15px;
+  row-gap: 15px;
+  //width: 65%;
+
+  &.grid-standart {
+
+    .item {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  &.grid-small {
+
+    .item {
+      width: 180px;
+      height: 180px;
+    }
+  }
+}

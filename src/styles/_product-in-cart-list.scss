@@ -1,0 +1,81 @@
+.product-in-cart-item {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+    row-gap: 8px;
+    column-gap: 8px;
+    border-bottom: 1px solid #ffa500;
+    padding-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: initial;
+      padding-bottom: initial;
+      border-bottom: none;
+    }
+}
+
+.picl-number {
+  font-size: 18px;
+  color: #ffa500;
+}
+
+.picl-image {
+    width: 176px;
+    height: 112px;
+    background-color: tomato;
+    background-size: cover;
+    background-position: center center;
+}
+
+.picl-info {
+    width: 480px;
+    color: #f5deb3;
+
+    span {
+      font-size: 24px;
+      text-shadow: 0 0 5px rgb(88,68,68),0 0 2px rgb(88,19,19),0 0 3px rgb(164,45,45),0 0 5px rgb(150,33,33);
+    }
+
+}
+
+// --- counter properties ------------------------------------
+.picl-counter {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+}
+
+.cnt-stock {
+  font-size: 20px;
+  font-weight: 500;
+  color: #d2b06f;
+  text-align: center;
+}
+
+.cnt-button-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.cnt-btn-block-btn {
+  font-size: 24px;
+  color: #ffa500;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.cnt-btn-block-amount {
+  font-size: 24px;
+  color: #ffa500;
+}
+
+.cnt-total {
+  font-size: 20px;
+  font-weight: 500;
+  color: #d2b06f;
+  text-align: center;
+  margin-top: 8px;
+}

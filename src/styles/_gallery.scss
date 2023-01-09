@@ -1,0 +1,17 @@
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  column-gap: 8px;
+  row-gap: 8px;
+}
+
+.product-image {
+  width: 115px;
+  height: 115px;
+  background-color: #cacaca;
+  object-fit: cover;
+  object-position: center center;
+  border: 1px solid #ffa500;
+  border-radius: 8px;
+  cursor: pointer;
+}
